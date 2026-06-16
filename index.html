@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plataforma premium para descubrir y unirse a los mejores canales de Telegram organizados por categorías y países.">
+    <meta name="description" content="Plataforma premium para descubrir y unirse a los mejores canales de Telegram organizados por categorías.">
     <title>Telegram Hub Honduras | Directorio Premium</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,8 +30,8 @@
     <section class="banner-hero">
         <div class="contenido-hero">
             <span class="tagline-premium">Comunidades VIP & Canales Exclusivos</span>
-            <h1 class="titulo-principal">El Directorio Definitivo de Canales de <span class="gradiente-texto">Telegram</span></h1>
-            <p class="subtitulo-principal">Accede a grupos verificados, canales nuevos y las comunidades más populares de forma directa y totalmente gratuita.</p>
+            <h1 class="titulo-principal">Los Mejores Canales de <span class="gradiente-texto">Telegram</span></h1>
+            <p class="subtitulo-principal">Accede a grupos verificados, perfiles más buscados y las comunidades más populares de forma directa y totalmente gratuita.</p>
         </div>
     </section>
 
@@ -40,43 +40,17 @@
             
             <div class="bloque-buscador">
                 <i data-lucide="search" class="icono-buscar"></i>
-                <input type="text" id="buscador-input" placeholder="Buscar canales por nombre o descripción...">
-            </div>
-
-            <div class="sub-filtros">
-                <div class="control-filtro-grupo">
-                    <label for="filtro-pais"><i data-lucide="globe"></i> Filtrar por País:</label>
-                    <select id="filtro-pais" class="selector-premium">
-                        <option value="todos">Todos los Países</option>
-                        <option value="Honduras">Honduras</option>
-                        <option value="El Salvador">El Salvador</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Internacional">Internacional</option>
-                    </select>
-                </div>
-
-                <div class="control-filtro-grupo">
-                    <label for="filtro-orden"><i data-lucide="sliders"></i> Ordenar por:</label>
-                    <select id="filtro-orden" class="selector-premium">
-                        <option value="predeterminado">Por Defecto</option>
-                        <option value="popularidad">Más Populares Primero</option>
-                        <option value="alfabetico">Orden Alfabético (A-Z)</option>
-                    </select>
-                </div>
+                <input type="text" id="buscador-input" placeholder="Buscar canales de chicas por nombre o palabras clave...">
             </div>
 
             <div class="contenedor-categorias">
                 <span class="titulo-categorias-seccion">Categorías Disponibles:</span>
                 <div class="grid-botones-categorias" id="contenedor-botones-categorias">
                     <button class="btn-categoria activo" data-categoria="todas">Todas</button>
-                    <button class="btn-categoria" data-categoria="Catrachas">Catrachas</button>
-                    <button class="btn-categoria" data-categoria="Salvadoreñas">Salvadoreñas</button>
-                    <button class="btn-categoria" data-categoria="Guatemaltecas">Guatemaltecas</button>
-                    <button class="btn-categoria" data-categoria="Nuevas">Nuevas</button>
-                    <button class="btn-categoria" data-categoria="Populares">Populares</button>
-                    <button class="btn-categoria" data-categoria="Premium">Premium</button>
+                    <button class="btn-categoria" data-categoria="Mas Buscadas">Más Buscadas</button>
                     <button class="btn-categoria" data-categoria="Recomendadas">Recomendadas</button>
-                    <button class="btn-categoria" data-categoria="Más Visitadas">Más Visitadas</button>
+                    <button class="btn-categoria" data-categoria="Populares">Populares</button>
+                    <button class="btn-categoria" data-categoria="Mas Visitadas">Más Visitadas</button>
                 </div>
             </div>
         </section>
@@ -86,13 +60,12 @@
         </div>
 
         <section class="grid-canales" id="grid-canales">
-            <!-- Dinámico -->
-        </section>
+            </section>
 
         <div class="estado-vacio oculto" id="estado-vacio">
             <i data-lucide="alert-circle" class="icono-vacio"></i>
-            <h3>No se encontraron canales</h3>
-            <p>Prueba cambiando el filtro, la categoría o ajustando tu búsqueda.</p>
+            <h3>No se encontraron resultados</h3>
+            <p>Prueba escribiendo el nombre de otra chica o seleccionando otra categoría.</p>
         </div>
     </main>
 
