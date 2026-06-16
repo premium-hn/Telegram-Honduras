@@ -16,7 +16,7 @@ const CANALES_DATOS = [
     "categoria": "Populares",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+fo_lHhph4iRmYzMx",
     "popular": true
   },
   {
@@ -121,12 +121,12 @@ const CANALES_DATOS = [
   },
   {
     "id": 13,
-    "nombre": "Fanny Cruz",
-    "descripcion": "Comunidad VIP de Fanny Cruz. Acceso al listado de publicaciones y contenido de alta retención.",
+    "nombre": "Stefani Cruz",
+    "descripcion": "Comunidad VIP de Stefani Cruz. Acceso al listado de publicaciones y contenido de alta retención.",
     "categoria": "Populares",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+wzHIWcfdn5k0YTUx",
     "popular": false
   },
   {
@@ -136,7 +136,7 @@ const CANALES_DATOS = [
     "categoria": "Mas Buscadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+sjPLsn8kedwzNjBh",
     "popular": false
   },
   {
@@ -226,7 +226,7 @@ const CANALES_DATOS = [
     "categoria": "Recomendadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+yyO2gTTDgWU1NDEx",
     "popular": false
   },
   {
@@ -306,7 +306,7 @@ const CANALES_DATOS = [
     "categoria": "Recomendadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+fX9BmUO3vL00YTMx",
     "popular": false
   },
   {
@@ -360,6 +360,16 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
+    "id": 37,
+    "nombre": "Brisna Reyes",
+    "descripcion": "Comunidad premium de Brisna Reyes. Todo su contenido organizado en un enlace de acceso directo.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/+C2dX4D28U244ZDZh",
+    "popular": true
+  },
+  {
     "id": 41,
     "nombre": "Daniella Cadenas",
     "descripcion": "Acceso premium verificado al canal principal de Daniella Cadenas. Actualizaciones inmediatas.",
@@ -376,7 +386,7 @@ const CANALES_DATOS = [
     "categoria": "Mas Buscadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+rtSZIUKSkVBlNzIx",
     "popular": false
   },
   {
@@ -386,7 +396,7 @@ const CANALES_DATOS = [
     "categoria": "Recomendadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+A0xn0NVjVuRjNjYx",
     "popular": false
   },
   {
@@ -396,7 +406,7 @@ const CANALES_DATOS = [
     "categoria": "Mas Visitadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+MmIkwb1PoMk0Nzgx",
     "popular": false
   },
   {
@@ -406,7 +416,7 @@ const CANALES_DATOS = [
     "categoria": "Populares",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+H_am9c5lam00ZDgx",
     "popular": false
   },
   {
@@ -416,7 +426,7 @@ const CANALES_DATOS = [
     "categoria": "Mas Buscadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+SrhaczXTjJs2ZmFh",
     "popular": false
   },
   {
@@ -426,7 +436,7 @@ const CANALES_DATOS = [
     "categoria": "Recomendadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+0EZ6euY5wYE2MWQx",
     "popular": false
   },
   {
@@ -436,7 +446,7 @@ const CANALES_DATOS = [
     "categoria": "Mas Visitadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+2P1Wb7MxgMxlNzIx",
     "popular": false
   },
   {
@@ -446,7 +456,7 @@ const CANALES_DATOS = [
     "categoria": "Populares",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+k_FlZQM4ZQA4MjQx",
     "popular": false
   },
   {
@@ -456,7 +466,7 @@ const CANALES_DATOS = [
     "categoria": "Mas Buscadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+2xvJ4qhEhwpjMWMx",
     "popular": false
   },
   {
@@ -466,7 +476,7 @@ const CANALES_DATOS = [
     "categoria": "Recomendadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+U95RBZL1x5wxMmYx",
     "popular": false
   }
 ];
