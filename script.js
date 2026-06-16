@@ -1,37 +1,490 @@
-let CANALES_DATOS = [];
+const CANALES_DATOS = [
+  {
+    "id": 1,
+    "nombre": "VIP",
+    "descripcion": "El canal exclusivo con el mejor contenido seleccionado diariamente por expertos. Actualizaciones constantes en alta velocidad.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": true
+  },
+  {
+    "id": 2,
+    "nombre": "Marry Guerra",
+    "descripcion": "Accede al canal oficial de Marry Guerra. Actualizaciones exclusivas, fotos y contenido verificado todos los días.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": true
+  },
+  {
+    "id": 3,
+    "nombre": "Katherin Cota",
+    "descripcion": "Comunidad VIP de Katherin Cota. Conéctate directamente para no perderte ninguna de sus nuevas actualizaciones y publicaciones.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": true
+  },
+  {
+    "id": 4,
+    "nombre": "Angie Alvarado",
+    "descripcion": "Canal premium de Angie Alvarado. Espacio dedicado con el contenido más nuevo y exclusivo de la comunidad.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 5,
+    "nombre": "Aline Fonseca",
+    "descripcion": "Únete al grupo exclusivo de Aline Fonseca. Actualizaciones garantizadas en alta velocidad y dinámicas activas.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 6,
+    "nombre": "Kari",
+    "descripcion": "Espacio de interacción masiva con dinámicas, contenido exclusivo y actualizaciones en tiempo real de Kari.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 7,
+    "nombre": "Ximena Alcala",
+    "descripcion": "Directorio oficial y acceso al canal principal de Ximena Alcala. Comunidad premium activa.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 8,
+    "nombre": "Lizeth Rodriguez",
+    "descripcion": "Únete para conocer todo el contenido verificado de Lizeth Rodriguez. Acceso premium inmediato.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 9,
+    "nombre": "Dany Villalobos",
+    "descripcion": "Canal dedicado a Dany Villalobos. Actualizaciones completas y acceso directo a su comunidad privada.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 10,
+    "nombre": "Soy Loruga",
+    "descripcion": "El espacio exclusivo de Soy Loruga en Telegram. Todo el contenido oficial verificado aquí.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 11,
+    "nombre": "Oruga HN",
+    "descripcion": "Canal oficial premium de Oruga HN. Las mejores actualizaciones diarias recopiladas en un solo lugar.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 12,
+    "nombre": "Soy la Oruga",
+    "descripcion": "Espacio de interacción premium y actualizaciones garantizadas directas de Soy la Oruga.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 13,
+    "nombre": "Fanny Cruz",
+    "descripcion": "Comunidad VIP de Fanny Cruz. Acceso al listado de publicaciones y contenido de alta retención.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 14,
+    "nombre": "Stefy",
+    "descripcion": "Acceso verificado al canal de Stefy. Todo el contenido y las últimas novedades en tiempo real.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 15,
+    "nombre": "Sarca biker",
+    "descripcion": "Comunidad oficial de Sarca biker. Conéctate directamente con el canal más activo y exclusivo.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 16,
+    "nombre": "Dary Castañeda",
+    "descripcion": "Canal oficial verificado de Dary Castañeda. Espacio premium con las actualizaciones más solicitadas.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 17,
+    "nombre": "Mis Enlaces - Soy La Oruga",
+    "descripcion": "El concentrador premium de accesos y redes oficiales directas de Soy La Oruga.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 18,
+    "nombre": "Abigail Mancia",
+    "descripcion": "Acceso exclusivo a la comunidad oficial de Abigail Mancia. Contenido premium verificado diariamente.",
+    "categoria": "Mas Buscadas",
+    "pais": "SALVADOREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": true
+  },
+  {
+    "id": 19,
+    "nombre": "Misaela Castejon",
+    "descripcion": "Únete al canal premium de Misaela Castejon para no perderte las últimas novedades de su grupo.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 20,
+    "nombre": "Luz Rodriguez",
+    "descripcion": "Acceso premium inmediato al canal oficial de Luz Rodriguez con el contenido más buscado.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 21,
+    "nombre": "Yaritza Lopez",
+    "descripcion": "Comunidad VIP de Yaritza Lopez. Espacio verificado con actualizaciones y dinámicas activas.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 22,
+    "nombre": "Desire Garcia",
+    "descripcion": "Canal oficial dedicado con todo el contenido exclusivo y novedades constantes de Desire Garcia.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 23,
+    "nombre": "Majo Ramirez",
+    "descripcion": "Únete a la comunidad verificada de Majo Ramirez. Todo su contenido organizado en un acceso directo.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 24,
+    "nombre": "La Queso",
+    "descripcion": "Comunidad premium oficial dedicada al seguimiento y novedades en tiempo real de La Queso.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 25,
+    "nombre": "Jacky Najera",
+    "descripcion": "Acceso al canal exclusivo de Jacky Najera. Fotos, interacciones y contenido de nivel premium.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 26,
+    "nombre": "Andy Flores",
+    "descripcion": "Canal verificado oficial de Andy Flores. Únete al grupo privado con actualizaciones diarias.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 27,
+    "nombre": "Vanessa Yuri",
+    "descripcion": "Comunidad privada de Vanessa Yuri en Telegram. Todo el contenido oficial en alta calidad.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 28,
+    "nombre": "La condesa",
+    "descripcion": "Canal premium exclusivo de La condesa. El espacio oficial con novedades constantes.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 29,
+    "nombre": "Cesia Díaz",
+    "descripcion": "Grupo oficial verificado de Cesia Díaz. Espacio VIP para miembros de la comunidad.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 30,
+    "nombre": "Soynayensy",
+    "descripcion": "Únete para conocer las últimas publicaciones y novedades dentro del canal oficial de Soynayensy.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 31,
+    "nombre": "Yanny Fonseca",
+    "descripcion": "Canal exclusivo de Yanny Fonseca. Todo el contenido estructurado en alta velocidad.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 32,
+    "nombre": "Sofia Pineda",
+    "descripcion": "Comunidad oficial verificada de Sofia Pineda. Acceso libre al directorio de publicaciones.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 33,
+    "nombre": "Mia Millón",
+    "descripcion": "Espacio premium VIP para miembros del canal oficial verificado de Mia Millón.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 34,
+    "nombre": "Paty Guzman",
+    "descripcion": "Canal principal verificado de Paty Guzman. Únete al grupo con las publicaciones más buscadas.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 35,
+    "nombre": "Mi Flaca",
+    "descripcion": "Comunidad dedicada oficial de Mi Flaca con el contenido y actualizaciones más recientes.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 36,
+    "nombre": "Vanessa Barahona",
+    "descripcion": "Acceso verificado a la comunidad premium de Vanessa Barahona. Actualizaciones de alta calidad.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 41,
+    "nombre": "Daniella Cadenas",
+    "descripcion": "Acceso premium verificado al canal principal de Daniella Cadenas. Actualizaciones inmediatas.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 42,
+    "nombre": "Kensy Solis",
+    "descripcion": "Canal verificado oficial de Kensy Solis. Únete al grupo con las publicaciones exclusivas.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 43,
+    "nombre": "Valeria Aguilar",
+    "descripcion": "Comunidad privada oficial de Valeria Aguilar en Telegram. Todo el contenido en alta calidad.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 44,
+    "nombre": "Desire Diaz",
+    "descripcion": "Canal premium exclusivo verificado de Desire Diaz. El espacio oficial con novedades constantes.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 45,
+    "nombre": "Step Reyes",
+    "descripcion": "Grupo oficial de Step Reyes. Espacio VIP activo con actualizaciones diarias en alta velocidad.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 46,
+    "nombre": "La Niche",
+    "descripcion": "Únete para conocer las últimas publicaciones dentro de la comunidad oficial de La Niche.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 47,
+    "nombre": "Jelen Santos",
+    "descripcion": "Canal exclusivo de Jelen Santos. Todo el contenido oficial estructurado de forma premium.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 48,
+    "nombre": "Meylin Cardenas",
+    "descripcion": "Comunidad oficial verificada de Meylin Cardenas. Acceso directo al directorio privado.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 49,
+    "nombre": "jassmin Abrego",
+    "descripcion": "Espacio premium VIP para miembros del canal oficial de jassmin Abrego.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 50,
+    "nombre": "Zamy gaibor",
+    "descripcion": "Canal principal verificado de Zamy gaibor. Acceso inmediato a sus mejores publicaciones.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  },
+  {
+    "id": 51,
+    "nombre": "Lopez Herrera",
+    "descripcion": "Comunidad dedicada oficial de Lopez Herrera con las actualizaciones y novedades más recientes.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": false
+  }
+];
+
 let categoriaActiva = "todas";
 
 const gridCanales = document.getElementById("grid-canales");
 const buscadorInput = document.getElementById("buscador-input");
-const filtroPais = document.getElementById("filtro-pais");
-const filtroOrden = document.getElementById("filtro-orden");
 const botonesCategorias = document.querySelectorAll(".btn-categoria");
 const contadorCanales = document.getElementById("contador-canales");
-const estadoVacio = document.getElementById("estado-vacio");
 
 document.addEventListener("DOMContentLoaded", () => {
-    conectarBaseDatos();
     activarEscuchasDeFiltros();
+    procesarYFiltrarContenido();
 });
-
-async function conectarBaseDatos() {
-    try {
-        const respuesta = await fetch("canales.json");
-        if (!respuesta.ok) {
-            throw new Error(`Estado de respuesta inválido: ${respuesta.status}`);
-        }
-        CANALES_DATOS = await respuesta.json();
-        procesarYFiltrarContenido();
-    } catch (error) {
-        console.error("Error al leer la base de datos JSON:", error);
-        contadorCanales.innerHTML = `<span style="color: #ff4a4a; font-weight: 600;">⚠️ Error al sincronizar los canales. Revisa canales.json</span>`;
-    }
-}
 
 function activarEscuchasDeFiltros() {
     buscadorInput.addEventListener("input", procesarYFiltrarContenido);
-    filtroPais.addEventListener("change", procesarYFiltrarContenido);
-    filtroOrden.addEventListener("change", procesarYFiltrarContenido);
     
     botonesCategorias.forEach(boton => {
         boton.addEventListener("click", (e) => {
@@ -46,22 +499,13 @@ function activarEscuchasDeFiltros() {
 
 function procesarYFiltrarContenido() {
     const textoBuscado = buscadorInput.value.toLowerCase().trim();
-    const paisFiltro = filtroPais.value;
-    const ordenFiltro = filtroOrden.value;
     
     let resultadoFiltrado = CANALES_DATOS.filter(canal => {
         const coincideTexto = canal.nombre.toLowerCase().includes(textoBuscado) || 
                               canal.descripcion.toLowerCase().includes(textoBuscado);
         const coincideCategoria = (categoriaActiva === "todas") || (canal.categoria === categoriaActiva);
-        const coincidePais = (paisFiltro === "todos") || (canal.pais === paisFiltro);
-        return coincideTexto && coincideCategoria && coincidePais;
+        return coincideTexto && coincideCategoria;
     });
-    
-    if (ordenFiltro === "popularidad") {
-        resultadoFiltrado.sort((a, b) => (b.popular === a.popular) ? 0 : b.popular ? 1 : -1);
-    } else if (ordenFiltro === "alfabetico") {
-        resultadoFiltrado.sort((a, b) => a.nombre.localeCompare(b.nombre));
-    }
     
     construirTarjetasVisuales(resultadoFiltrado);
 }
@@ -73,13 +517,6 @@ function construirTarjetasVisuales(listaCanales) {
         contadorCanales.textContent = "1 canal premium detectado.";
     } else {
         contadorCanales.textContent = `${listaCanales.length} canales disponibles en este momento.`;
-    }
-    
-    if (listaCanales.length === 0) {
-        estadoVacio.classList.remove("oculto");
-        return;
-    } else {
-        estadoVacio.classList.add("oculto");
     }
     
     listaCanales.forEach(canal => {
