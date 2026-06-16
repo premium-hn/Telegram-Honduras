@@ -1,42 +1,52 @@
 [
   {
     "id": 1,
-    "nombre": "VIP Premium Club",
-    "descripcion": "El canal exclusivo con el mejor contenido seleccionado diariamente por expertos. Actualizaciones constantes en alta velocidad.",
-    "categoria": "Premium",
+    "nombre": "Mary Guerra",
+    "descripcion": "Accede al canal oficial de Mary Guerra. Actualizaciones exclusivas, fotos y contenido verificado todos los días.",
+    "categoria": "Populares",
     "pais": "Honduras",
-    "imagen": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=600&auto=format&fit=crop",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
     "enlace": "https://t.me/TuEnlaceAqui",
     "popular": true
   },
   {
     "id": 2,
-    "nombre": "Catrachas de Corazón",
-    "descripcion": "Comunidad oficial dedicada a compartir las mejores tendencias, cultura, entertainment y novedades directas desde Honduras.",
-    "categoria": "Catrachas",
+    "nombre": "Katherin Cota",
+    "descripcion": "Comunidad VIP de Katherin Cota. Conéctate directamente para no perderte ninguna de sus nuevas actualizaciones y publicaciones.",
+    "categoria": "Mas Buscadas",
     "pais": "Honduras",
-    "imagen": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=600&auto=format&fit=crop",
+    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
     "enlace": "https://t.me/TuEnlaceAqui",
     "popular": true
   },
   {
     "id": 3,
-    "nombre": "Salvadoreñas Elite",
-    "descripcion": "Grupo premium enfocado en las últimas tendencias, debates y el mejor contenido de El Salvador. ¡Únete a la comunidad activa!",
-    "categoria": "Salvadoreñas",
-    "pais": "El Salvador",
-    "imagen": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=600&auto=format&fit=crop",
+    "nombre": "Angie Alvarado",
+    "descripcion": "Canal premium de Angie Alvarado. Espacio dedicado con el contenido más nuevo y exclusivo de la comunidad.",
+    "categoria": "Mas Visitadas",
+    "pais": "Honduras",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
     "enlace": "https://t.me/TuEnlaceAqui",
     "popular": false
   },
   {
     "id": 4,
-    "nombre": "Guatemaltecas Pro",
-    "descripcion": "Espacio de interacción masiva con dinámicas, contenido exclusivo y lo más viral de toda Guatemala. Acceso libre por tiempo limitado.",
-    "categoria": "Guatemaltecas",
-    "pais": "Guatemala",
-    "imagen": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=600&auto=format&fit=crop",
+    "nombre": "Aline Fonseca",
+    "descripcion": "Únete al grupo exclusivo de Aline Fonseca. Actualizaciones garantizadas en alta velocidad y dinámicas activas.",
+    "categoria": "Recomendadas",
+    "pais": "Honduras",
+    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
     "enlace": "https://t.me/TuEnlaceAqui",
     "popular": false
+  },
+  {
+    "id": 5,
+    "nombre": "Brisna Reyes",
+    "descripcion": "Comunidad verificada de Brisna Reyes. Todo el contenido premium organizado en un solo lugar de acceso directo.",
+    "categoria": "Populares",
+    "pais": "Honduras",
+    "imagen": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",
+    "enlace": "https://t.me/TuEnlaceAqui",
+    "popular": true
   }
 ]
