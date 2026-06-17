@@ -318,43 +318,54 @@ body {
     flex-grow: 1;
 }
 
-.meta-pais {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.75rem;
-    color: var(--color-telegram);
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-}
-
-.meta-pais i {
-    width: 12px;
-    height: 12px;
-}
+/* --- SECCIÓN NUEVA DE TEXTOS Y BOTONES --- */
 
 .titulo-canal {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+    margin-top: 10px;
     color: #fff;
 }
 
 .desc-canal {
-    font-size: 0.88rem;
-    color: var(--texto-secundario);
-    line-height: 1.4;
-    margin-bottom: 20px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 24px;
     flex-grow: 1;
 }
 
-.btn-entrar-telegram {
+.texto-verificado {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.icono-verificado {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.texto-aviso {
+    font-size: 0.82rem;
+    color: var(--texto-secundario);
+    line-height: 1.4;
+}
+
+.contenedor-botones-tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     margin-top: auto;
+}
+
+/* Botón Entrar al Canal */
+.btn-entrar-telegram {
     width: 100%;
     background: var(--color-telegram);
     color: #fff;
@@ -362,11 +373,11 @@ body {
     padding: 12px;
     border-radius: 10px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
     border: none;
     cursor: pointer;
     transition: var(--transicion-suave);
@@ -374,7 +385,7 @@ body {
 
 .btn-entrar-telegram:hover {
     background: var(--color-telegram-hover);
-    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.2);
 }
 
 .btn-entrar-telegram i {
@@ -382,34 +393,54 @@ body {
     height: 16px;
 }
 
-/* Estilo Premium para el Botón Verde de Desbloquear (Unlockt.me) */
+/* Botón de Desbloquear Unlock.me */
 .btn-desbloquear-premium {
     width: 100%;
     background-color: #22c55e;
     color: #ffffff;
     border: none;
-    padding: 12px;
+    padding: 10px 12px;
     border-radius: 10px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    font-family: var(--fuente-sistema);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 10px;
     transition: var(--transicion-suave);
 }
 
 .btn-desbloquear-premium:hover {
     background-color: #16a34a;
-    gap: 10px;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25);
 }
 
 .btn-desbloquear-premium i {
     width: 16px;
     height: 16px;
 }
+
+.texto-doble-linea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+}
+
+.linea-superior {
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+}
+
+.linea-inferior {
+    font-weight: 500;
+    font-size: 0.65rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- FIN SECCIÓN NUEVA --- */
 
 .estado-vacio {
     text-align: center;
