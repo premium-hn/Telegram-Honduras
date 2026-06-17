@@ -84,7 +84,6 @@ body {
     padding: 25px; margin-bottom: 25px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* BUSCADOR MÁS PEQUEÑO Y CENTRADO */
 .bloque-buscador {
     position: relative;
     width: 100%;
@@ -162,7 +161,7 @@ body {
     border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center;
     gap: 10px; transition: var(--transicion-suave);
 }
-.btn-desbloquear-premium:hover { background-color: #16a34a; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25); }
+.btn-desbloquear-premium:hover { background: var(--color-telegram-hover); box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25); }
 .btn-desbloquear-premium i { width: 16px; height: 16px; }
 
 .texto-doble-linea { display: flex; flex-direction: column; align-items: center; line-height: 1.1; }
@@ -173,7 +172,7 @@ body {
 .icono-vacio { color: var(--texto-secundario); width: 40px; height: 40px; margin-bottom: 10px; }
 .oculto { display: none !important; }
 
-/* DISEÑO DE LA SECCIÓN DE OPINIONES */
+/* --- DISEÑO DE LA SECCIÓN DE OPINIONES CON SCROLL --- */
 .seccion-comentarios {
     max-width: 800px; margin: 60px auto 20px auto; padding: 35px;
     background: var(--fondo-tarjeta-glass); border-radius: 20px;
@@ -182,7 +181,21 @@ body {
 
 .titulo-comentarios { font-size: 1.5rem; text-align: center; margin-bottom: 30px; color: #fff; }
 
-.lista-comentarios { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+/* AQUÍ ACTIVAMOS EL SCROLL INTERNO PARA LOS COMENTARIOS */
+.lista-comentarios { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    margin-bottom: 30px;
+    max-height: 480px; /* Limita la altura */
+    overflow-y: auto; /* Activa el scroll vertical */
+    padding-right: 12px; /* Deja espacio para la barra de scroll */
+}
+
+/* Estilos de la barrita de scroll dentro de los comentarios */
+.lista-comentarios::-webkit-scrollbar { width: 6px; }
+.lista-comentarios::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 10px; }
+.lista-comentarios::-webkit-scrollbar-thumb { background: var(--color-telegram); border-radius: 10px; }
 
 .comentario-card {
     display: flex; gap: 15px; background: rgba(0,0,0,0.3); padding: 18px;
@@ -198,7 +211,6 @@ body {
 .cuerpo-comentario { display: flex; flex-direction: column; gap: 6px; }
 
 .nombre-comentario { font-size: 1.05rem; color: #fff; font-weight: 700; display: flex; align-items: center; gap: 5px; }
-.icono-verificado-comentario { width: 14px; height: 14px; }
 
 .texto-comentario { font-size: 0.95rem; color: var(--texto-secundario); line-height: 1.5; }
 
