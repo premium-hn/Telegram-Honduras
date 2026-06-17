@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plataforma premium para descubrir y explorar canales de Telegram Honduras organizados por categorías. Acceso verificado de forma directa.">
+    <meta name="description" content="Plataforma informativa premium para descubrir y unirse a los mejores canales de Telegram Honduras organizados por categorías.">
     <title>Telegram Hub Honduras | Directorio Premium</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,46 +22,46 @@
                 <i data-lucide="send" class="icono-logo"></i>
                 <span class="texto-logo">TELEGRAM<span class="resalto-logo">HN</span></span>
             </div>
-            <div class="menu-derecho">
+            <nav class="menu-derecho">
                 <span class="badge-elite">PLATAFORMA SEGURA Y VERIFICADA</span>
-            </div>
+            </nav>
         </div>
     </header>
 
     <section class="banner-hero">
         <div class="contenido-hero">
-            <span class="tagline-premium">Directorio Profesional Verificado</span>
+            <span class="tagline-premium">Comunidades VIP & Canales Exclusivos</span>
             <h1 class="titulo-principal">Descubre los canales más buscados de <span class="gradiente-texto">Telegram Honduras</span></h1>
             <p class="subtitulo-principal">Explora perfiles destacados, encuentra tus canales favoritos y accede mediante un proceso sencillo desde cualquier dispositivo.</p>
             
-            <div class="grid-beneficios">
-                <div class="beneficio-item">
+            <div class="contenedor-beneficios-hero">
+                <div class="beneficio-tarjeta">
                     <i data-lucide="layout-grid"></i>
                     <span>Perfiles organizados</span>
                 </div>
-                <div class="beneficio-item">
-                    <i data-lucide="shield-check"></i>
+                <div class="beneficio-tarjeta">
+                    <i data-lucide="check-circle-2"></i>
                     <span>Acceso sencillo</span>
                 </div>
-                <div class="beneficio-item">
+                <div class="beneficio-tarjeta">
                     <i data-lucide="smartphone"></i>
                     <span>Compatible con teléfonos</span>
                 </div>
             </div>
 
-            <button type="button" class="btn-explorar-hero" id="btn-scroll-canales">
-                Explorar canales <i data-lucide="arrow-down" class="icono-flecha-hero"></i>
+            <button type="button" class="btn-explorar-canales" id="btn-scroll-directorio">
+                Explorar canales <i data-lucide="chevron-down"></i>
             </button>
         </div>
     </section>
 
-    <main class="contenedor-principal" id="seccion-directorio">
-        
+    <main class="contenedor-principal" id="directorio-seccion">
         <section class="panel-control-glass">
+            
             <div class="bloque-buscador">
                 <i data-lucide="search" class="icono-buscar"></i>
-                <input type="text" id="buscador-input" placeholder="Buscar canales por nombre o palabras clave..." autocomplete="off">
-                <button type="button" class="btn-limpiar-busqueda oculto" id="btn-clear-search-inline" title="Limpiar búsqueda">
+                <input type="text" id="buscador-input" placeholder="Buscar canales de chicas por nombre o palabras clave..." autocomplete="off">
+                <button type="button" class="btn-limpiar-busqueda-inline oculto" id="btn-clear-input" title="Limpiar texto">
                     <i data-lucide="x"></i>
                 </button>
             </div>
@@ -77,7 +77,7 @@
         </section>
 
         <div class="contador-resultados" id="contador-canales" aria-live="polite">
-            Cargando base de datos de canales organizados...
+            Sincronizando el registro de canales privados...
         </div>
 
         <section class="grid-canales" id="grid-canales">
@@ -86,39 +86,39 @@
         <div class="estado-vacio oculto" id="estado-vacio">
             <i data-lucide="alert-circle" class="icono-vacio"></i>
             <h3 id="estado-vacio-titulo">No encontramos canales que coincidan con tu búsqueda.</h3>
-            <p id="estado-vacio-texto">Prueba escribiendo el nombre de otra chica o seleccionando otra categoría.</p>
-            <button type="button" class="btn-accion-estado" id="btn-reset-vacio">Limpiar búsqueda</button>
+            <p id="estado-vacio-subtexto">Prueba escribiendo el nombre de otra chica o seleccionando otra categoría.</p>
+            <button type="button" class="btn-limpiar-accion" id="btn-limpiar-busqueda-vacio">Limpiar búsqueda</button>
         </div>
 
         <section class="seccion-comentarios">
             <h3 class="titulo-comentarios">Experiencias de nuestros usuarios</h3>
-            <div class="lista-comentarios-fijos">
+            <div class="lista-comentarios-estaticos">
                 <div class="comentario-card-fijo">
-                    <div class="avatar-fijo" style="background-color: #0284c7;">A</div>
-                    <div class="cuerpo-fijo">
-                        <span class="nombre-fijo">Andrés M.</span>
-                        <p class="texto-fijo">La interfaz de la página es sumamente intuitiva. El catálogo se encuentra muy bien ordenado por categorías, lo cual facilita encontrar perfiles específicos sin rodeos.</p>
+                    <div class="avatar-comentario" style="background-color: #0284c7;">M</div>
+                    <div class="cuerpo-comentario">
+                        <h4 class="nombre-comentario">Marlon J.</h4>
+                        <p class="texto-comentario">La organización del directorio es excelente. Las categorías permiten filtrar de inmediato y los enlaces directos a Telegram funcionan correctamente y permiten encontrar cada canal de forma rápida.</p>
                     </div>
                 </div>
                 <div class="comentario-card-fijo">
-                    <div class="avatar-fijo" style="background-color: #0d9488;">J</div>
-                    <div class="cuerpo-fijo">
-                        <span class="nombre-fijo">Jorge S.</span>
-                        <p class="texto-fijo">El proceso de acceso es sumamente ágil y directo. Me agrada que la plataforma funcione de forma rápida en teléfonos móviles sin sufrir pérdidas de rendimiento.</p>
+                    <div class="avatar-comentario" style="background-color: #eab308;">D</div>
+                    <div class="cuerpo-comentario">
+                        <h4 class="nombre-comentario">Daniel T.</h4>
+                        <p class="texto-comentario">Me parece una interfaz sumamente limpia y profesional. Es de gran utilidad que cargue perfectamente en teléfonos móviles, permitiendo el ingreso rápido a las aplicaciones.</p>
                     </div>
                 </div>
                 <div class="comentario-card-fijo">
-                    <div class="avatar-fijo" style="background-color: #7c3aed;">E</div>
-                    <div class="cuerpo-fijo">
-                        <span class="nombre-fijo">Eduardo T.</span>
-                        <p class="texto-fijo">Excelente distribución del directorio informativo. Los enlaces a la plataforma externa Unlockt funcionan de forma correcta, rápida y sin sorpresas engañosas.</p>
+                    <div class="avatar-comentario" style="background-color: #22c55e;">F</div>
+                    <div class="cuerpo-comentario">
+                        <h4 class="nombre-comentario">Fernando S.</h4>
+                        <p class="texto-comentario">El funcionamiento de la página web es ejemplar. Los accesos directos abren la app de Telegram de inmediato sin redirecciones extrañas ni ventanas de publicidad molesta.</p>
                     </div>
                 </div>
                 <div class="comentario-card-fijo">
-                    <div class="avatar-fijo" style="background-color: #db2777;">R</div>
-                    <div class="cuerpo-fijo">
-                        <span class="nombre-fijo">Ramiro V.</span>
-                        <p class="texto-fijo">Un sitio web limpio, profesional y directo. La clasificación entre comunidades nuevas y las más buscadas ahorra muchísimo tiempo de navegación.</p>
+                    <div class="avatar-comentario" style="background-color: #a855f7;">C</div>
+                    <div class="cuerpo-comentario">
+                        <h4 class="nombre-comentario">Carlos R.</h4>
+                        <p class="texto-comentario">Felicidades por mantener un catálogo informativo verificado y libre de enlaces engañosos. Es el portal más completo y seguro que he utilizado en dispositivos móviles.</p>
                     </div>
                 </div>
             </div>
@@ -127,24 +127,24 @@
         <section class="seccion-seguridad-legal">
             <div class="bloque-legal-cabecera">
                 <i data-lucide="shield-alert" class="icono-legal-header"></i>
-                <h3>Seguridad y uso responsable</h3>
+                <h3>SEGURIDAD Y USO RESPONSABLE</h3>
             </div>
             <div class="grid-clausulas-legales">
                 <div class="clausula-item">
                     <h5>Restricción de Edad Obligatoria</h5>
-                    <p>Este sitio web está dirigido única y exclusivamente a personas mayores de 18 años. Al continuar navegando, el visitante asume el compromiso legal de cumplir con las legislaciones y normativas vigentes en su respectivo país de residencia.</p>
+                    <p>Este sitio está dirigido exclusivamente a personas mayores de 18 años. Al continuar navegando, el visitante confirma que cumple este requisito y asume la responsabilidad de respetar las leyes, normas y restricciones aplicables en su país de residencia.</p>
                 </div>
                 <div class="clausula-item">
                     <h5>Naturaleza Informativa del Directorio</h5>
-                    <p>La página web funciona de forma estricta como un directorio puramente informativo y de recopilación. No se aloja, transmite, almacena ni distribuye de forma directa ningún tipo de contenido multimedia, archivos, videos o imágenes de los canales indexados.</p>
+                    <p>Esta página funciona únicamente como un directorio informativo de enlaces. No aloja, almacena, transmite ni distribuye directamente fotografías, videos, archivos o publicaciones pertenecientes a los canales privados que aparecen organizados dentro del sitio.</p>
                 </div>
                 <div class="clausula-item">
                     <h5>Enlaces Externos e Independencia de Marca</h5>
-                    <p>Todos los enlaces de redirección conducen hacia la plataforma oficial de Telegram o a pasarelas de servicios externos independientes. Este sitio web no cuenta con ninguna afiliación comercial, patrocinio o nexo oficial con la aplicación de mensajería Telegram, siendo esta una marca registrada totalmente independiente.</p>
+                    <p>Los botones de acceso conducen directamente a canales alojados en Telegram. Este directorio funciona de manera independiente y no mantiene afiliación, patrocinio ni relación comercial oficial con Telegram o con los administradores de la plataforma.</p>
                 </div>
                 <div class="clausula-item">
-                    <h5>Políticas de Contenido Inapropiado y Transparencia</h5>
-                    <p>Bajo ninguna circunstancia se permite ni se tolera la indexación de contenido relacionado con menores de edad o material publicado sin la debida autorización de su propietario. Cualquier usuario o titular de derechos puede solicitar la eliminación inmediata de un enlace, perfil o imagen a través de los canales de soporte corporativo habilitados en el pie de página.</p>
+                    <h5>Políticas de Contenido y Transparencia</h5>
+                    <p>No se permite incluir material relacionado con menores ni publicaciones utilizadas sin autorización. Los propietarios o representantes autorizados pueden reportar un perfil y solicitar la eliminación de una fotografía, nombre o enlace mediante los medios disponibles en el pie de página.</p>
                 </div>
             </div>
         </section>
@@ -154,7 +154,7 @@
         <div class="contenedor-footer-content">
             <div class="footer-info-marca">
                 <span class="footer-logo">TELEGRAM<span class="resalto-logo">HN</span></span>
-                <p class="footer-disclaimer-brand">Directorio independiente de comunidades. Telegram es una marca registrada independiente.</p>
+                <p class="footer-disclaimer-brand">Directorio estático e independiente. Telegram es una marca registrada independiente.</p>
             </div>
             <div class="footer-enlaces-legales">
                 <button type="button" class="btn-footer-link" data-modal-legal="terminos">Términos y condiciones</button>
@@ -166,23 +166,23 @@
             </div>
         </div>
         <div class="footer-derechos-barra">
-            <p>© <span id="auto-year">2026</span> TELEGRAM HUB HN. Todos los derechos reservados. Acceso de Adultos Garantizado.</p>
+            <p>© <span id="auto-year">2026</span> TELEGRAM HUB HN. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <div class="modal-backdrop-sistema oculto" id="modal-desbloqueo-canal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-canal">
+    <div class="modal-backdrop-sistema oculto" id="modal-confirmacion-telegram" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-canal">
         <div class="modal-box-glass">
-            <div class="modal-header-icon green">
-                <i data-lucide="external-link"></i>
+            <div class="modal-header-icon blue-theme">
+                <i data-lucide="send"></i>
             </div>
-            <h4 class="modal-titulo-sistema" id="modal-titulo-canal">Desbloquear acceso</h4>
+            <h4 class="modal-titulo-sistema" id="modal-titulo-canal">Continuar a Telegram</h4>
             <div class="modal-cuerpo-sistema">
-                <p class="modal-nombre-elemento-destacado" id="dinamico-modal-canal-name">Nombre del Canal</p>
-                <p class="modal-texto-aviso-legal">Estás a punto de salir de esta página y continuar el proceso de acceso mediante un servicio externo.</p>
+                <p class="modal-nombre-elemento-destacado" id="dinamico-modal-canal-name">Canal privado de [NOMBRE]</p>
+                <p class="modal-texto-aviso-legal" id="dinamico-modal-canal-msg">Estás a punto de abrir el canal privado de Telegram de [NOMBRE]. Presiona continuar para abrirlo en la aplicación o en Telegram Web.</p>
             </div>
             <div class="modal-footer-botones">
-                <button type="button" class="btn-modal-accion secundario" id="btn-modal-cancelar-desbloqueo">Cancelar</button>
-                <button type="button" class="btn-modal-accion primario verde" id="btn-modal-confirmar-desbloqueo">Continuar</button>
+                <button type="button" class="btn-modal-accion secundario" id="btn-modal-cancelar-telegram">Cancelar</button>
+                <button type="button" class="btn-modal-accion primario" id="btn-modal-confirmar-telegram">Continuar a Telegram</button>
             </div>
         </div>
     </div>
