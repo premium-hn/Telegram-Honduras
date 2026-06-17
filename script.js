@@ -31,7 +31,18 @@ const CANALES_DATOS = [
   { "id": 30, "nombre": "Vanessa Yuri", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1XAMESKYx8FyuUCztcC5J1H303036lLn8", "enlace": "https://t.me/+2WVL_7Q4igEzY2Qx" },
   { "id": 31, "nombre": "La Condesa", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1FB5WlXNERO1V9k0W9XTlH4eMw6g7BNUW", "enlace": "https://t.me/+g86KLMXR7As5MThh" },
   { "id": 32, "nombre": "Cesia Díaz", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1g5_Y8jwAlf8RG7ozH5KliEwyQsNe9yN2", "enlace": "https://t.me/+8PH4QKXiA_o0MWYx" },
-  { "id": 33, "nombre": "Soy Nayensy", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1NgRpTkK7DXYjnYreR2YEMMFEHMx3d54K", "enlace": "https://t.me/+txryRi0jpUdmNjhh" }
+  { "id": 33, "nombre": "Soy Nayensy", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1NgRpTkK7DXYjnYreR2YEMMFEHMx3d54K", "enlace": "https://t.me/+txryRi0jpUdmNjhh" },
+  { "id": 34, "nombre": "Dany Villalobos", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1eQX38li-H571THJIKBy-N3ZCMPFpA4aq", "enlace": "https://t.me/+E5zPP4HjaDExYmMx" },
+  { "id": 35, "nombre": "Soy Loruga", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1OHZ5h1uoxCE55A2vPR3rXb_3GfJDsQHU", "enlace": "https://t.me/+A3yqEaK9tZdmNWZh" },
+  { "id": 36, "nombre": "Fanny Cruz", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/15KqrjOcwY3LGHzvVhB3_lq4xQKiIPoJG", "enlace": "https://t.me/+sjPLsn8kedwzNjBh" },
+  { "id": 37, "nombre": "Sarca Biker", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/16jYVYG-h2nYgG0PH72TNzTd5iMHTpI7f", "enlace": "https://t.me/+ylPRFibcisRhNzJh" },
+  { "id": 38, "nombre": "Dary Castañeda", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/18BVaF822mSTPN4qlYdwrmDNMI0IwwoGp", "enlace": "https://t.me/+Oh4JUJ1tvks3YjUx" },
+  { "id": 39, "nombre": "Misaela Castejón", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1Nmq01LiNjmK4ww0GO1K2T5LH2h14t5UP", "enlace": "https://t.me/+l2iw7ku8t7BkY2Nh" },
+  { "id": 40, "nombre": "Katherin Cota", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1jVYopdOgWxmPAfFj321VhJ0rCtqvCgsj", "enlace": "https://t.me/+2qFAw0Noo_VlNjIx" },
+  { "id": 41, "nombre": "Angie Alvarado", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1p-a60wA0GIF9sp6-zGrgcIeXqRxZ6Wt7", "enlace": "https://t.me/+0bsZh4s-0W4wOTgx" },
+  { "id": 42, "nombre": "Aline Fonseca", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/13cHWpNlcBStkLGPcJNsGn0vG1tXpXvS1", "enlace": "https://t.me/+hXHxTt_OsiFhNzYx" },
+  { "id": 43, "nombre": "Ximena Alcalá", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1WoLgPaO2ruhRuRtHQrv6tWIWe1vAfSem", "enlace": "https://t.me/+fPbKcMqMQsM1MDEx" },
+  { "id": 44, "nombre": "Lizeth Rodriguez", "categoria": "Más Buscadas", "imagen": "https://lh3.googleusercontent.com/d/1vO0FAinKrUUcrmcn0Qzwk7VdKL1u0Nbr", "enlace": "https://t.me/+ODIHEY8jnDZhM2Jh" }
 ];
 
 let categoriaActiva = "todas";
