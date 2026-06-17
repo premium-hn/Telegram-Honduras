@@ -30,7 +30,7 @@ const CANALES_DATOS = [
     "id": 4,
     "nombre": "Desire Diaz",
     "descripcion": "Canal premium exclusivo verificado de Desire Diaz. El espacio oficial con novedades constantes.",
-    "categoria": "Más Busas",
+    "categoria": "Más Buscadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://lh3.googleusercontent.com/d/1B1-jKbJcO-9jvzU6_yEUrXiBhK0k3908",
     "enlace": "https://t.me/+MmIkwb1PoMk0Nzgx"
@@ -173,7 +173,7 @@ const CANALES_DATOS = [
   {
     "id": 20,
     "nombre": "Gabriela Rivas",
-    "descripcion": "Comunidad oficial verificada de Gabriela Rivas. Espacio premium con novedades activ.",
+    "descripcion": "Comunidad oficial verificada de Gabriela Rivas. Espacio premium con novedades activas.",
     "categoria": "Más Buscadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://lh3.googleusercontent.com/d/1qMhCK5xXmsXQfXtR0-_Bosjj5qIgzlAR",
@@ -300,18 +300,14 @@ const CANALES_DATOS = [
 
 let categoriaActiva = "todas";
 
-const gridCanales = document.getElementById("grid-canales");
-const buscadorInput = document.getElementById("buscador-input");
-const botonesCategorias = document.querySelectorAll(".btn-categoria");
-const contadorCanales = document.getElementById("contador-canales");
-
-document.addEventListener("DOMContentLoaded", () => {
-    activarEscuchasDeFiltros();
-    procesarYFiltrarContenido();
-    aplicarSeguridadFotografias();
-});
+// Carga Inicial Directa (Elimina esperas colgadas del DOM)
+procesarYFiltrarContenido();
+aplicarSeguridadFotografias();
 
 function activarEscuchasDeFiltros() {
+    const buscadorInput = document.getElementById("buscador-input");
+    const botonesCategorias = document.querySelectorAll(".btn-categoria");
+
     if (buscadorInput) {
         buscadorInput.addEventListener("input", procesarYFiltrarContenido);
     }
@@ -328,6 +324,7 @@ function activarEscuchasDeFiltros() {
 }
 
 function procesarYFiltrarContenido() {
+    const buscadorInput = document.getElementById("buscador-input");
     const textoBuscado = buscadorInput ? buscadorInput.value.toLowerCase().trim() : "";
     
     let resultadoFiltrado = CANALES_DATOS.filter(canal => {
@@ -341,6 +338,9 @@ function procesarYFiltrarContenido() {
 }
 
 function construirTarjetasVisuales(listaCanales) {
+    const gridCanales = document.getElementById("grid-canales");
+    const contadorCanales = document.getElementById("contador-canales");
+    
     if (!gridCanales) return;
     gridCanales.innerHTML = "";
     
@@ -374,6 +374,8 @@ function construirTarjetasVisuales(listaCanales) {
         `;
         gridCanales.appendChild(tarjetaHtml);
     });
+    
+    activarEscuchasDeFiltros();
     
     if (window.lucide) {
         lucide.createIcons();
