@@ -112,12 +112,12 @@ function construirTarjetasVisuales(listaCanales) {
                 <div class="badge-categoria">${canal.categoria}</div>
             </div>
             <div class="info-cuerpo-tarjeta">
-                <h2 class="titulo-canal">${canal.nombre}</h2>
+                <h2 class="titulo-canal">
+                    ${canal.nombre}
+                    <svg class="icono-verificado-titulo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00a2f2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.3 7.6-5.2 6a1 1 0 0 1-1.5.1l-2.4-2.4a1 1 0 1 1 1.4-1.4l1.6 1.6 4.5-5.3a1 1 0 0 1 1.6 1.4z"/></svg>
+                </h2>
                 <div class="desc-canal">
-                    <p class="texto-verificado">
-                        Canal premium Exclusivo Verificado
-                        <svg class="icono-verificado" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00a2f2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.3 7.6-5.2 6a1 1 0 0 1-1.5.1l-2.4-2.4a1 1 0 1 1 1.4-1.4l1.6 1.6 4.5-5.3a1 1 0 0 1 1.6 1.4z"/></svg>
-                    </p>
+                    <p class="texto-verificado">Canal premium Exclusivo Verificado</p>
                     <p class="texto-aviso">Este es el último enlace de su contenido.</p>
                 </div>
                 
