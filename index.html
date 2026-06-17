@@ -18,11 +18,11 @@
     <header class="header-premium">
         <div class="contenedor-nav">
             <div class="logo-area">
-                <i data-lucide="shield-check" class="icono-logo"></i>
+                <i data-lucide="send" class="icono-logo"></i>
                 <span class="texto-logo">TELEGRAM<span class="resalto-logo">HN</span></span>
             </div>
             <nav class="menu-derecho">
-                <span class="badge-elite"><i data-lucide="zap"></i> PLATAFORMA VERIFICADA</span>
+                <span class="badge-elite">PLATAFORMA SEGURA Y VERIFICADA</span>
             </nav>
         </div>
     </header>
@@ -31,13 +31,12 @@
         <div class="contenido-hero">
             <span class="tagline-premium">Comunidades VIP & Canales Exclusivos</span>
             <h1 class="titulo-principal">Los Mejores Canales de <span class="gradiente-texto">Telegram</span></h1>
-            <p class="subtitulo-principal">Accede a grupos verificados, perfiles más buscados y las comunidades más populares de forma directa y totalmente gratuita.</p>
+            <p class="subtitulo-principal">"Deja de buscar. Encuentra los grupos y canales en tendencia en un solo lugar y únete con un solo clic."</p>
         </div>
     </section>
 
     <main class="contenedor-principal">
         <section class="panel-control-glass">
-            
             <div class="bloque-buscador">
                 <i data-lucide="search" class="icono-buscar"></i>
                 <input type="text" id="buscador-input" placeholder="Buscar canales de chicas por nombre o palabras clave...">
@@ -57,18 +56,56 @@
         </div>
 
         <section class="grid-canales" id="grid-canales">
-            <!-- Dinámico -->
-        </section>
+            </section>
 
         <div class="estado-vacio oculto" id="estado-vacio">
             <i data-lucide="alert-circle" class="icono-vacio"></i>
             <h3>No se encontraron resultados</h3>
             <p>Prueba escribiendo el nombre de otra chica o seleccionando otra categoría.</p>
         </div>
-    </main>
+        
+        <section class="seccion-comentarios">
+            <h3 class="titulo-comentarios">Lo que dice nuestra comunidad 🔥</h3>
+            
+            <div class="lista-comentarios" id="lista-comentarios">
+                <div class="comentario-card">
+                    <div class="avatar-comentario" style="background: #eab308;">C</div>
+                    <div class="cuerpo-comentario">
+                        <h4 class="nombre-comentario">Carlos M. <svg class="icono-verificado-comentario" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00a2f2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.3 7.6-5.2 6a1 1 0 0 1-1.5.1l-2.4-2.4a1 1 0 1 1 1.4-1.4l1.6 1.6 4.5-5.3a1 1 0 0 1 1.6 1.4z"/></svg></h4>
+                        <p class="texto-comentario">La mejor página que he encontrado, aquí están todas las maes más ricas. ¡100% recomendado loco!</p>
+                    </div>
+                </div>
+                
+                <div class="comentario-card">
+                    <div class="avatar-comentario" style="background: #ec4899;">L</div>
+                    <div class="cuerpo-comentario">
+                        <h4 class="nombre-comentario">Luis Fernando <svg class="icono-verificado-comentario" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00a2f2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.3 7.6-5.2 6a1 1 0 0 1-1.5.1l-2.4-2.4a1 1 0 1 1 1.4-1.4l1.6 1.6 4.5-5.3a1 1 0 0 1 1.6 1.4z"/></svg></h4>
+                        <p class="texto-comentario">Bro, pensé que era mentira pero el enlace de Unlock.me es 100% confiable y seguro. Ya entré a 3 grupos y todo al cien.</p>
+                    </div>
+                </div>
+
+                <div class="comentario-card">
+                    <div class="avatar-comentario" style="background: #3b82f6;">K</div>
+                    <div class="cuerpo-comentario">
+                        <h4 class="nombre-comentario">Kevin Martinez <svg class="icono-verificado-comentario" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00a2f2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.3 7.6-5.2 6a1 1 0 0 1-1.5.1l-2.4-2.4a1 1 0 1 1 1.4-1.4l1.6 1.6 4.5-5.3a1 1 0 0 1 1.6 1.4z"/></svg></h4>
+                        <p class="texto-comentario">Por fin un directorio que sí funciona y no tiene enlaces caídos. Las mejores de Honduras están aquí, buenísimo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="caja-escribir-comentario">
+                <h4 class="titulo-escribir">Deja tu opinión</h4>
+                <form id="form-comentario">
+                    <input type="text" id="nombre-usuario" placeholder="Tu nombre o alias..." required>
+                    <textarea id="texto-usuario" placeholder="Escribe tu comentario aquí..." required></textarea>
+                    <button type="submit" class="btn-enviar-comentario">Publicar comentario</button>
+                </form>
+            </div>
+        </section>
+        </main>
 
     <footer class="footer-premium">
-        <p>&copy; 2026 TELEGRAM HUB HN. Todos los derechos reservados. Diseño Ultra-Premium.</p>
+        <p>© 2026 TELEGRAM HUB HN. Todos los derechos reservados. Diseño Ultra-Premium.</p>
     </footer>
 
     <script src="script.js"></script>
