@@ -40,6 +40,7 @@ const ENLACE_DESBLOQUEAR_GLOBAL = "https://unlockt.me/v/947a74b739";
 document.addEventListener("DOMContentLoaded", () => {
     procesarYFiltrarContenido();
     aplicarSeguridadFotografias();
+    inicializarSistemaComentarios();
 });
 
 function activarEscuchasDeFiltros() {
@@ -180,4 +181,47 @@ function aplicarSeguridadFotografias() {
             e.target.style.userSelect = 'none';
         }
     }, {passive: true});
+}
+
+// SISTEMA DE COMENTARIOS "FANTASMA"
+function inicializarSistemaComentarios() {
+    const form = document.getElementById("form-comentario");
+    if (form && !form.dataset.listener) {
+        form.dataset.listener = "true";
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            const nombre = document.getElementById("nombre-usuario").value;
+            const texto = document.getElementById("texto-usuario").value;
+            const lista = document.getElementById("lista-comentarios");
+            const inicial = nombre.charAt(0).toUpperCase();
+            
+            const nuevoComentario = document.createElement("div");
+            nuevoComentario.classList.add("comentario-card");
+            
+            nuevoComentario.innerHTML = `
+                <div class="avatar-comentario" style="background: #22c55e;">${inicial}</div>
+                <div class="cuerpo-comentario">
+                    <h4 class="nombre-comentario">${nombre}</h4>
+                    <p class="texto-comentario">${texto}</p>
+                </div>
+            `;
+            
+            // Agrega el comentario arriba del todo
+            lista.insertBefore(nuevoComentario, lista.firstChild);
+            
+            // Limpia el formulario y da una alerta de éxito
+            form.reset();
+            const btn = form.querySelector(".btn-enviar-comentario");
+            const textoOriginal = btn.textContent;
+            
+            btn.textContent = "¡Comentario Publicado!";
+            btn.style.background = "#22c55e";
+            
+            setTimeout(() => {
+                btn.textContent = textoOriginal;
+                btn.style.background = "";
+            }, 3000);
+        });
+    }
 }
