@@ -228,3 +228,221 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: var(--transicion-suave);
+}
+
+.btn-categoria:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-categoria.activo {
+    background: var(--color-telegram);
+    border-color: var(--color-telegram);
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(0, 136, 204, 0.25);
+}
+
+.contador-resultados {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+    margin-bottom: 15px;
+}
+
+.grid-canales {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.tarjeta-canal {
+    background: var(--fondo-tarjeta-glass);
+    border: 1px solid var(--borde-glass);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transicion-suave);
+    will-change: transform, box-shadow;
+}
+
+.tarjeta-canal:hover {
+    transform: translateY(-6px);
+    border-color: var(--borde-glass-hover);
+    box-shadow: 0 15px 30px rgba(0, 136, 204, 0.12);
+}
+
+/* Contenedor de fotos vertical ampliado y blindaje anti-copia */
+.contenedor-foto {
+    position: relative;
+    width: 100%;
+    height: 390px;
+    background: #141620;
+    overflow: hidden;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Enfoque superior inteligente para los rostros completos de las fotos */
+.contenedor-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none;
+    cursor: default;
+    transition: transform 0.5s ease;
+}
+
+.tarjeta-canal:hover .contenedor-foto img {
+    transform: scale(1.03);
+}
+
+.badge-categoria {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(10, 11, 16, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--borde-glass);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.info-cuerpo-tarjeta {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.meta-pais {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: var(--color-telegram);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.meta-pais i {
+    width: 12px;
+    height: 12px;
+}
+
+.titulo-canal {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.desc-canal {
+    font-size: 0.88rem;
+    color: var(--texto-secundario);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.btn-entrar-telegram {
+    margin-top: auto;
+    width: 100%;
+    background: var(--color-telegram);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transicion-suave);
+}
+
+.btn-entrar-telegram:hover {
+    background: var(--color-telegram-hover);
+    gap: 10px;
+}
+
+.btn-entrar-telegram i {
+    width: 16px;
+    height: 16px;
+}
+
+/* Estilo Premium para el Botón Verde de Desbloquear (Unlockt.me) */
+.btn-desbloquear-premium {
+    width: 100%;
+    background-color: #22c55e;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: var(--fuente-sistema);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: var(--transicion-suave);
+}
+
+.btn-desbloquear-premium:hover {
+    background-color: #16a34a;
+    gap: 10px;
+}
+
+.btn-desbloquear-premium i {
+    width: 16px;
+    height: 16px;
+}
+
+.estado-vacio {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--fondo-tarjeta-glass);
+    border-radius: 16px;
+    border: 1px solid var(--borde-glass);
+    max-width: 400px;
+    margin: 30px auto;
+}
+
+.icono-vacio {
+    color: var(--texto-secundario);
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.oculto {
+    display: none !important;
+}
+
+.footer-premium {
+    border-top: 1px solid var(--borde-glass);
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--texto-secundario);
+    background: #07080c;
+}
+
+@media (max-width: 768px) {
+    .titulo-principal { font-size: 1.85rem; }
+    .grid-canales { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+    .contenedor-foto { height: 340px; }
+}
