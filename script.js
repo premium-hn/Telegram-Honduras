@@ -301,26 +301,32 @@ const CANALES_DATOS = [
 let categoriaActiva = "todas";
 const ENLACE_DESBLOQUEAR_GLOBAL = "https://unlockt.me/v/947a74b739";
 
-// Carga Inicial Directa
-procesarYFiltrarContenido();
-aplicarSeguridadFotografias();
+// Ejecución al cargar
+document.addEventListener("DOMContentLoaded", () => {
+    procesarYFiltrarContenido();
+    aplicarSeguridadFotografias();
+});
 
 function activarEscuchasDeFiltros() {
     const buscadorInput = document.getElementById("buscador-input");
     const botonesCategorias = document.querySelectorAll(".btn-categoria");
 
-    if (buscadorInput) {
+    if (buscadorInput && !buscadorInput.dataset.listener) {
+        buscadorInput.dataset.listener = "true";
         buscadorInput.addEventListener("input", procesarYFiltrarContenido);
     }
     
     botonesCategorias.forEach(boton => {
-        boton.addEventListener("click", (e) => {
-            botonesCategorias.forEach(b => b.classList.remove("activo"));
-            const botonPresionado = e.currentTarget;
-            botonPresionado.classList.add("activo");
-            categoriaActiva = botonPresionado.getAttribute("data-categoria");
-            procesarYFiltrarContenido();
-        });
+        if (!boton.dataset.listener) {
+            boton.dataset.listener = "true";
+            boton.addEventListener("click", (e) => {
+                botonesCategorias.forEach(b => b.classList.remove("activo"));
+                const botonPresionado = e.currentTarget;
+                botonPresionado.classList.add("activo");
+                categoriaActiva = botonPresionado.getAttribute("data-categoria");
+                procesarYFiltrarContenido();
+            });
+        }
     });
 }
 
@@ -341,9 +347,18 @@ function procesarYFiltrarContenido() {
 function construirTarjetasVisuales(listaCanales) {
     const gridCanales = document.getElementById("grid-canales");
     const contadorCanales = document.getElementById("contador-canales");
+    const estadoVacio = document.getElementById("estado-vacio");
     
     if (!gridCanales) return;
     gridCanales.innerHTML = "";
+    
+    if (listaCanales.length === 0) {
+        if (estadoVacio) estadoVacio.classList.remove("oculto");
+        if (contadorCanales) contadorCanales.textContent = "0 canales encontrados.";
+        return;
+    } else {
+        if (estadoVacio) estadoVacio.classList.add("oculto");
+    }
     
     if (contadorCanales) {
         if (listaCanales.length === 1) {
@@ -355,3 +370,77 @@ function construirTarjetasVisuales(listaCanales) {
     
     listaCanales.forEach(canal => {
         const tarjetaHtml = document.createElement("article");
+        tarjetaHtml.classList.add("tarjeta-canal");
+        
+        tarjetaHtml.innerHTML = `
+            <div class="contenedor-foto" oncontextmenu="return false;">
+                <img src="${canal.imagen}" alt="Imagen de ${canal.nombre}" class="img-protegida" loading="lazy" draggable="false" oncontextmenu="return false;">
+                <div class="badge-categoria">${canal.categoria}</div>
+            </div>
+            <div class="info-cuerpo-tarjeta">
+                <div class="meta-pais">
+                    <i data-lucide="map-pin"></i> ${canal.pais}
+                </div>
+                <h2 class="titulo-canal">${canal.nombre}</h2>
+                <p class="desc-canal">${canal.descripcion}</p>
+                
+                <div class="contenedor-botones-tarjeta" style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
+                    <button class="btn-entrar-telegram" onclick="abrirCanalSeguro('${canal.enlace}')">
+                        <i data-lucide="send"></i> Entrar al Canal
+                    </button>
+                    <button class="btn-desbloquear-premium" onclick="window.open('${ENLACE_DESBLOQUEAR_GLOBAL}', '_blank')">
+                        <i data-lucide="lock"></i>
+                        <div class="texto-doble-linea">
+                            <span class="linea-superior">Desbloquear</span>
+                            <span class="linea-inferior">Unlock.me</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        `;
+        gridCanales.appendChild(tarjetaHtml);
+    });
+    
+    activarEscuchasDeFiltros();
+    
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+}
+
+function abrirCanalSeguro(enlace) {
+    if (enlace.includes('+')) {
+        const partes = [...enlace.split('/')];
+        const codigoInvitacion = partes[partes.length - 1].replace('+', '');
+        const enlaceForzado = `tg://join?invite=${codigoInvitacion}`;
+        window.location.href = enlaceForzado;
+        
+        setTimeout(() => {
+            window.open(enlace, '_blank');
+        }, 500);
+    } else {
+        window.open(enlace, '_blank');
+    }
+}
+
+function aplicarSeguridadFotografias() {
+    document.addEventListener('contextmenu', e => {
+        if (e.target.classList.contains('img-protegida') || e.target.classList.contains('contenedor-foto')) {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener('dragstart', e => {
+        if (e.target.classList.contains('img-protegida')) {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener('touchstart', e => {
+        if (e.target.classList.contains('img-protegida')) {
+            e.target.style.webkitTouchCallout = 'none';
+            e.target.style.webkitUserSelect = 'none';
+            e.target.style.userSelect = 'none';
+        }
+    }, {passive: true});
+}
