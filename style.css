@@ -94,13 +94,18 @@ html.edad-bloqueada, body.edad-bloqueada { overflow: hidden !important; }
 .contador-resultados { font-size: 0.88rem; color: var(--texto-secundario); margin-bottom: 20px; text-align: center; font-weight: 500; }
 
 .grid-canales { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 40px; }
-.tarjeta-canal { background: var(--fondo-tarjeta-glass); border: 1px solid var(--borde-glass); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: var(--transicion-suave); will-change: transform, box-shadow; }
+
+.tarjeta-canal { 
+    background: var(--fondo-tarjeta-glass); border: 1px solid var(--borde-glass); border-radius: 16px; 
+    overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: var(--transicion-suave); will-change: transform, box-shadow; 
+}
 .tarjeta-canal:hover { transform: translateY(-5px); border-color: var(--borde-glass-hover); box-shadow: 0 12px 30px rgba(0, 136, 204, 0.15); }
 
 .imagen-protegida { position: relative; overflow: hidden; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; width: 100%; height: 280px; background: #141620; touch-action: pan-y; }
 .imagen-protegida img { display: block; width: 100%; height: 100%; pointer-events: none; user-select: none; -webkit-user-select: none; -webkit-user-drag: none; -moz-user-select: none; object-fit: cover; object-position: top; transition: transform 0.5s ease; }
 .tarjeta-canal:hover .imagen-protegida img { transform: scale(1.03); }
 .capa-proteccion-imagen { position: absolute; inset: 0; z-index: 2; background: transparent; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+
 .wrapper-badges-tarjeta { position: absolute; top: 12px; left: 12px; display: flex; flex-direction: column; gap: 6px; z-index: 3; pointer-events: none; max-width: calc(100% - 24px); }
 .badge-categoria { background: rgba(10, 11, 16, 0.85); backdrop-filter: blur(6px); border: 1px solid var(--borde-glass); padding: 4px 10px; border-radius: 6px; font-size: 0.68rem; font-weight: 700; color: #fff; width: fit-content; max-width: 100%; white-space: nowrap; }
 .badge-categoria.badge-popular { border-color: rgba(255, 183, 3, 0.4); color: var(--color-oro-premium); }
@@ -134,28 +139,55 @@ html.edad-bloqueada, body.edad-bloqueada { overflow: hidden !important; }
 .btn-limpiar-accion { background: var(--color-telegram); color: #fff; border: none; padding: 10px 22px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: var(--transicion-suave); }
 .btn-limpiar-accion:hover { background: var(--color-telegram-hover); }
 
-/* --- COMENTARIOS --- */
-.seccion-comentarios { max-width: 850px; margin: 60px auto 40px auto; padding: 40px 24px; border-top: 1px solid var(--borde-glass); }
-
-/* TITULO DE COMENTARIOS MEJORADO Y EN MAYÚSCULAS */
-.titulo-comentarios { 
-    font-size: 1.35rem; 
-    font-weight: 800; 
-    text-align: center; 
-    margin-bottom: 35px; 
-    color: #fff; 
-    text-transform: uppercase; 
-    letter-spacing: 1.5px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    padding-bottom: 15px;
+/* --- SECCIÓN DE COMENTARIOS REDUCIDA, CON SCROLL INTERNO Y TÍTULO MAYÚSCULAS --- */
+.seccion-comentarios { 
+    max-width: 650px; 
+    margin: 40px auto; 
+    padding: 25px 20px; 
+    border-top: 1px solid var(--borde-glass); 
 }
 
-.lista-comentarios-estaticos { display: grid; grid-template-columns: 1fr; gap: 16px; }
-.comentario-card-fijo { background: rgba(255, 255, 255, 0.02); padding: 24px; border-radius: 16px; border: 1px solid var(--borde-glass); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-.comentario-cabecera { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-.avatar-comentario { width: 46px; height: 46px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.15rem; flex-shrink: 0; }
-.nombre-comentario { font-size: 1.05rem; color: #fff; font-weight: 700; margin: 0; }
-.texto-comentario { font-size: 0.95rem; color: var(--texto-secundario); line-height: 1.6; margin: 0; text-align: left; }
+.titulo-comentarios { 
+    font-size: 1.15rem; 
+    font-weight: 800; 
+    text-align: center; 
+    margin-bottom: 20px; 
+    color: #fff; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    border-bottom: 1px solid rgba(255,255,255,0.05); 
+    padding-bottom: 10px; 
+}
+
+.lista-comentarios-estaticos { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    max-height: 320px; /* Limita la altura para que no sea enorme */
+    overflow-y: auto; /* Activa el scroll interno */
+    padding-right: 5px; 
+}
+
+/* Scrollbar pequeña para los comentarios */
+.lista-comentarios-estaticos::-webkit-scrollbar { width: 4px; }
+.lista-comentarios-estaticos::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 10px; }
+.lista-comentarios-estaticos::-webkit-scrollbar-thumb { background: var(--color-telegram); border-radius: 10px; }
+
+.comentario-card-fijo { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+    background: rgba(255, 255, 255, 0.02); 
+    padding: 14px 16px; 
+    border-radius: 12px; 
+    border: 1px solid var(--borde-glass); 
+}
+
+.comentario-cabecera { display: flex; align-items: center; gap: 10px; }
+.avatar-comentario { width: 32px; height: 32px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; flex-shrink: 0; }
+.nombre-comentario { font-size: 0.9rem; color: #fff; font-weight: 700; margin: 0; }
+.texto-comentario { font-size: 0.85rem; color: var(--texto-secundario); line-height: 1.4; margin: 0; text-align: left; }
+
 
 /* --- CLAUSULAS LEGALES --- */
 .seccion-seguridad-legal { max-width: 1200px; margin: 40px auto 10px auto; padding: 40px 24px; background: rgba(16, 18, 27, 0.3); border-radius: 20px; border: 1px solid var(--borde-glass); }
