@@ -1,81 +1,15 @@
 /**
- * Telegram Hub Honduras - Módulo Lógico Estático
+ * Telegram Hub Honduras
+ * Lógica estática para GitHub Pages, sin frameworks ni dependencias de servidor.
  */
 
-(function () {
-    "use strict";
+"use strict";
 
-    const CLAVE_EDAD = "age_verified_hn";
+const CLAVE_EDAD = "age_verified_hn";
+const URL_IMAGEN_DRIVE = (id) => `https://lh3.googleusercontent.com/d/${encodeURIComponent(id)}=w500-h700-p`;
+const IMAGEN_RESPALDO_FALLBACK = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='700' viewBox='0 0 500 700'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23141620'/%3E%3Cstop offset='1' stop-color='%230a0b10'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='700' fill='url(%23g)'/%3E%3Ccircle cx='250' cy='280' r='78' fill='%23252a38'/%3E%3Cpath d='M105 590c20-112 95-170 145-170s125 58 145 170' fill='%23252a38'/%3E%3Ctext x='250' y='650' text-anchor='middle' fill='%239ca3af' font-family='Arial,sans-serif' font-size='24'%3EImagen no disponible%3C/text%3E%3C/svg%3E";
 
-    function obtenerModalEdad() {
-        return document.getElementById("modal-interceptor-edad");
-    }
-
-    function ocultarModalEdad() {
-        const modal = obtenerModalEdad();
-        if (!modal) return;
-        modal.classList.add("oculto");
-        modal.setAttribute("aria-hidden", "true");
-        document.documentElement.classList.remove("edad-bloqueada");
-        document.body.classList.remove("edad-bloqueada");
-    }
-
-    function mostrarModalEdad() {
-        const modal = obtenerModalEdad();
-        if (!modal) return;
-        modal.classList.remove("oculto");
-        modal.setAttribute("aria-hidden", "false");
-        document.documentElement.classList.add("edad-bloqueada");
-        document.body.classList.add("edad-bloqueada");
-    }
-
-    function comprobarEdadConfirmada() {
-        try { return localStorage.getItem(CLAVE_EDAD) === "true"; } 
-        catch (e) { return false; }
-    }
-
-    function guardarEdadConfirmada() {
-        try { localStorage.setItem(CLAVE_EDAD, "true"); } 
-        catch (e) {}
-    }
-
-    function inicializarControlEdad() {
-        const botonConfirmar = document.getElementById("btn-age-gate-confirmar");
-        const botonSalir = document.getElementById("btn-age-gate-salir");
-
-        if (comprobarEdadConfirmada()) {
-            ocultarModalEdad();
-        } else {
-            mostrarModalEdad();
-        }
-
-        if (botonConfirmar) {
-            botonConfirmar.addEventListener("click", function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-                guardarEdadConfirmada();
-                ocultarModalEdad();
-            });
-        }
-
-        if (botonSalir) {
-            botonSalir.addEventListener("click", function (event) {
-                event.preventDefault();
-                window.location.replace("https://www.google.com/");
-            });
-        }
-    }
-
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", inicializarControlEdad, { once: true });
-    } else {
-        inicializarControlEdad();
-    }
-})();
-
-const IMAGEN_RESPALDO_FALLBACK = "./img/imagen-no-disponible.webp";
-
-const CANALES_DATOS = [
+const CANALES_DATOS = Object.freeze([
     { id: 1, nombre: "Brisna Reyes", popular: true, new: false, imagen: "1H4k6rbM3B1BWb4FI6ZlpZbfUB-0Xg3v_", enlace: "https://t.me/+C2dX4D28U244ZDZh" },
     { id: 2, nombre: "Kensy Solis", popular: true, new: false, imagen: "1CHWs_2JZICXvnYMg8kozn4PFdR8e0Q3b", enlace: "https://t.me/+rtSZIUKSkVBlNzIx" },
     { id: 3, nombre: "Valeria Aguilar", popular: true, new: false, imagen: "1NwgfTAi0IvHpOqKSgpMFre9T_RfTB-Y3", enlace: "https://t.me/+A0xn0NVjVuRjNjYx" },
@@ -120,317 +54,360 @@ const CANALES_DATOS = [
     { id: 42, nombre: "Aline Fonseca", popular: false, new: true, imagen: "13cHWpNlcBStkLGPcJNsGn0vG1tXpXvS1", enlace: "https://t.me/+hXHxTt_OsiFhNzYx" },
     { id: 43, nombre: "Ximena Alcalá", popular: false, new: true, imagen: "1WoLgPaO2ruhRuRtHQrv6tWIWe1vAfSem", enlace: "https://t.me/+fPbKcMqMQsM1MDEx" },
     { id: 44, nombre: "Lizeth Rodriguez", popular: false, new: true, imagen: "1vO0FAinKrUUcrmcn0Qzwk7VdKL1u0Nbr", enlace: "https://t.me/+ODIHEY8jnDZhM2Jh" }
-];
+]);
 
-const TEXTOS_LEGALES_FOOTER = {
-    terminos: `<h5>1. Aceptación de Condiciones</h5><p>Al navegar por este directorio informativo, usted asume los presentes términos de uso. Si no concuerda con ellos, interrumpa la navegación de inmediato.</p><h5>2. Propósito del Portal</h5><p>Este sitio web opera únicamente como un índice digital organizado para facilitar la localización de canales de comunicación públicos disponibles en la red de Telegram.</p><h5>3. Exención de Responsabilidad</h5><p>El uso y consecuencias de las interacciones dentro de la aplicación de destino son responsabilidad exclusiva de cada internauta.</p>`,
-    privacidad: `<h5>Políticas de Tratamiento y Privacidad</h5><p>Este portal estático no realiza capturas de datos personales, nombres, correos o direcciones IP mediante bases de datos.</p><p>Se utiliza únicamente la propiedad localStorage de su explorador con la única meta de recordar si ya validó su mayoría de edad, evitando la sobrecarga recurrente del interceptor inicial.</p><p>Al hacer clic en los accesos informativos, el visitante es redirigido a Telegram. Esta plataforma cuenta con sus propias políticas de privacidad, independientes de este directorio.</p>`,
-    mayoridad: `<h5>Aviso Restrictivo de Edad (18+)</h5><p>Los canales compilados en este espacio informativo incluyen material enfocado y dirigido exclusivamente a personas adultas legalmente capacitadas.</p><p>Queda prohibido el ingreso de menores de edad. Mantenemos políticas estrictas de remoción de enlaces ante cualquier reporte verificado de contenidos no autorizados.</p>`,
-    reportar: `<h5>Tramitación de Reportes de Enlaces</h5><p>En caso de localizar un hipervínculo roto, caído o considerar que un canal indexado no cumple las reglas de la comunidad, puede solicitar una auditoría preventiva.</p><p>Próximamente se habilitará un canal oficial institucional para la recepción sistemática de reportes y la posterior verificación de enlaces del directorio.</p>`,
-    eliminacion: `<h5>Solicitudes de Exclusión Directa (DMCA)</h5><p>Se respeta plenamente el derecho de autor y de imagen de todos los creadores.</p><p>Cualquier titular o apoderado legal acreditado puede demandar la remoción inmediata de un perfil, enlace o fotografía del directorio. La exclusión se ejecuta de forma expedita tras recibir la validación formal.</p>`,
-    contacto: `<h5>Canales de Soporte y Comunicación</h5><p>Para notificaciones administrativas o solicitudes de baja de perfiles, próximamente se habilitará un canal oficial centralizado para la atención de requerimientos informativos.</p>`
-};
+const TEXTOS_LEGALES_FOOTER = Object.freeze({
+    terminos: `<h3>1. Aceptación de condiciones</h3><p>Al navegar por este directorio informativo, el visitante acepta los presentes términos de uso. Si no está de acuerdo con ellos, debe interrumpir la navegación.</p><h3>2. Propósito del portal</h3><p>Este sitio funciona únicamente como un índice digital organizado para facilitar la localización de canales disponibles en Telegram.</p><h3>3. Responsabilidad del visitante</h3><p>El uso de los enlaces y las interacciones dentro de la plataforma de destino son responsabilidad exclusiva de cada visitante.</p>`,
+    privacidad: `<h3>Política de privacidad</h3><p>Este portal estático no solicita nombres, correos electrónicos ni otros datos personales mediante formularios o bases de datos.</p><p>Se utiliza únicamente localStorage para recordar si el visitante confirmó ser mayor de edad.</p><p>Al abrir un enlace, el visitante pasa a Telegram, plataforma que mantiene sus propias políticas de privacidad independientes de este directorio.</p>`,
+    mayoridad: `<h3>Aviso de edad 18+</h3><p>Los canales organizados en este directorio están dirigidos exclusivamente a personas adultas.</p><p>Queda prohibido el ingreso de menores de edad. Los enlaces pueden retirarse ante reportes válidos de contenido no autorizado.</p>`,
+    reportar: `<h3>Reportar un enlace o contenido</h3><p>Los visitantes pueden solicitar la revisión de enlaces rotos, caídos o que consideren contrarios a las reglas del directorio.</p><p>Próximamente se habilitará un canal oficial institucional para recibir y verificar reportes.</p>`,
+    eliminacion: `<h3>Solicitar eliminación</h3><p>Este directorio respeta los derechos de autor y de imagen.</p><p>El titular o representante autorizado puede solicitar la eliminación de un nombre, fotografía o enlace. Próximamente se habilitará un canal oficial institucional para tramitar estas solicitudes.</p>`,
+    contacto: `<h3>Contacto institucional</h3><p>Próximamente se habilitará un canal oficial institucional para consultas administrativas, reportes y solicitudes de eliminación.</p>`
+});
+
+const SELECTORES_FOCO = [
+    "a[href]",
+    "button:not([disabled])",
+    "input:not([disabled])",
+    "select:not([disabled])",
+    "textarea:not([disabled])",
+    "[tabindex]:not([tabindex='-1'])"
+].join(",");
 
 let canalSeleccionadoTelegram = null;
 let categoriaActiva = "todas";
 let busquedaFiltroTexto = "";
 let debounceTimerId = null;
+let modalActivo = null;
+let elementoFocoAnterior = null;
 
-document.addEventListener("DOMContentLoaded", () => {
-    actualizarAñoFooter();
-    vincularListenersInterfazCompleta();
-    activarProteccionVisualImagenes();
-    inyectarCargaSkeletons();
-});
-
-function actualizarAñoFooter() {
-    const elemento = document.getElementById("auto-year");
-    if (elemento) {
-        elemento.textContent = new Date().getFullYear();
-    }
+function obtenerElemento(id) {
+    return document.getElementById(id);
 }
 
 function normalizarTexto(texto) {
-    return String(texto)
+    return String(texto ?? "")
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .trim();
 }
 
-function vincularListenersInterfazCompleta() {
-    const inputBuscar = document.getElementById("buscador-input");
-    const btnClearInline = document.getElementById("btn-clear-input");
+function actualizarIconos() {
+    if (window.lucide && typeof window.lucide.createIcons === "function") {
+        window.lucide.createIcons();
+    }
+}
 
-    inputBuscar?.addEventListener("input", (e) => {
-        clearTimeout(debounceTimerId);
-        busquedaFiltroTexto = normalizarTexto(e.target.value);
+function actualizarAñoFooter() {
+    const elemento = obtenerElemento("auto-year");
+    if (elemento) elemento.textContent = String(new Date().getFullYear());
+}
 
-        if (e.target.value.trim().length > 0) {
-            btnClearInline?.classList.remove("oculto");
-        } else {
-            btnClearInline?.classList.add("oculto");
-        }
+function comprobarEdadConfirmada() {
+    try {
+        return localStorage.getItem(CLAVE_EDAD) === "true";
+    } catch (error) {
+        console.warn("No se pudo consultar la verificación de edad en localStorage.", error);
+        return false;
+    }
+}
 
-        debounceTimerId = setTimeout(() => {
-            filtrarYProcesarCanales();
-        }, 200);
-    });
+function guardarEdadConfirmada() {
+    try {
+        localStorage.setItem(CLAVE_EDAD, "true");
+    } catch (error) {
+        console.warn("No se pudo guardar la verificación de edad en localStorage.", error);
+    }
+}
 
-    btnClearInline?.addEventListener("click", () => {
-        if (inputBuscar) inputBuscar.value = "";
-        busquedaFiltroTexto = "";
-        btnClearInline.classList.add("oculto");
-        filtrarYProcesarCanales();
-        inputBuscar?.focus();
-    });
+function bloquearFondoPorEdad(bloquear) {
+    document.documentElement.classList.toggle("edad-bloqueada", bloquear);
+    document.body.classList.toggle("edad-bloqueada", bloquear);
+}
 
-    const botonesCategorias = document.querySelectorAll("#contenedor-botones-categorias .btn-categoria");
-    botonesCategorias.forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            botonesCategorias.forEach(b => b.classList.remove("activo"));
-            const btnTarget = e.currentTarget;
-            btnTarget.classList.add("activo");
-            categoriaActiva = btnTarget.getAttribute("data-categoria");
-            filtrarYProcesarCanales();
-        });
-    });
+function mostrarModalEdad() {
+    const modal = obtenerElemento("modal-interceptor-edad");
+    if (!modal) return;
 
-    document.getElementById("btn-limpiar-busqueda-vacio")?.addEventListener("click", () => {
-        if (inputBuscar) inputBuscar.value = "";
-        busquedaFiltroTexto = "";
-        if (btnClearInline) btnClearInline.classList.add("oculto");
-        
-        categoriaActiva = "todas";
-        
-        botonesCategorias.forEach(b => {
-            if (b.getAttribute("data-categoria") === "todas") {
-                b.classList.add("activo");
-            } else {
-                b.classList.remove("activo");
-            }
-        });
+    modal.classList.remove("oculto");
+    modal.setAttribute("aria-hidden", "false");
+    bloquearFondoPorEdad(true);
 
-        filtrarYProcesarCanales();
-    });
-
-    document.getElementById("grid-canales")?.addEventListener("click", (e) => {
-        const targetBoton = e.target.closest(".btn-telegram-canal");
-        if (!targetBoton) return;
-        
-        const idCanal = parseInt(targetBoton.getAttribute("data-canal-id"), 10);
-        abrirModalConfirmacionTelegram(idCanal);
-    });
-
-    document.getElementById("btn-modal-cancelar-telegram")?.addEventListener("click", cerrarModalTelegram);
-    document.getElementById("btn-modal-confirmar-telegram")?.addEventListener("click", continuarAlCanalTelegram);
-    
-    const backdropTelegram = document.getElementById("modal-confirmacion-telegram");
-    backdropTelegram?.addEventListener("click", (e) => {
-        if (e.target === backdropTelegram) cerrarModalTelegram();
-    });
-
-    window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            cerrarModalTelegram();
-            document.getElementById("modal-textos-legales-footer")?.classList.add("oculto");
-        }
-    });
-
-    document.getElementById("btn-modal-cerrar-legal")?.addEventListener("click", () => {
-        document.getElementById("modal-textos-legales-footer")?.classList.add("oculto");
-    });
-
-    document.querySelectorAll(".btn-footer-link").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            const claveLegal = e.currentTarget.getAttribute("data-modal-legal");
-            abrirModalTextosLegalesFooter(claveLegal);
-        });
+    requestAnimationFrame(() => {
+        obtenerElemento("btn-age-gate-confirmar")?.focus({ preventScroll: true });
     });
 }
 
-function inyectarCargaSkeletons() {
-    const grid = document.getElementById("grid-canales");
-    if (!grid) return;
+function ocultarModalEdad() {
+    const modal = obtenerElemento("modal-interceptor-edad");
+    if (!modal) return;
 
-    grid.innerHTML = "";
-    for (let i = 0; i < 8; i++) {
-        const skeleton = document.createElement("div");
-        skeleton.className = "skeleton-card";
-        skeleton.innerHTML = `
-            <div class="skeleton-media"></div>
-            <div class="skeleton-text-block">
-                <div class="skeleton-line title"></div>
-                <div class="skeleton-line desc"></div>
-                <div class="skeleton-line desc" style="width: 75%;"></div>
-                <div class="skeleton-line btn"></div>
-            </div>
-        `;
-        grid.appendChild(skeleton);
+    modal.classList.add("oculto");
+    modal.setAttribute("aria-hidden", "true");
+    bloquearFondoPorEdad(false);
+}
+
+function inicializarControlEdad() {
+    if (comprobarEdadConfirmada()) {
+        ocultarModalEdad();
+    } else {
+        mostrarModalEdad();
     }
 
-    setTimeout(() => {
-        filtrarYProcesarCanales();
-    }, 850);
+    obtenerElemento("btn-age-gate-confirmar")?.addEventListener("click", () => {
+        guardarEdadConfirmada();
+        ocultarModalEdad();
+    });
+
+    obtenerElemento("btn-age-gate-salir")?.addEventListener("click", () => {
+        window.location.replace("https://www.google.com/");
+    });
+}
+
+function bloquearFondoPorModal(bloquear) {
+    document.documentElement.classList.toggle("modal-abierto", bloquear);
+    document.body.classList.toggle("modal-abierto", bloquear);
+}
+
+function abrirModal(modal, focoInicial = null) {
+    if (!modal) return;
+
+    elementoFocoAnterior = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    modalActivo = modal;
+    modal.classList.remove("oculto");
+    modal.setAttribute("aria-hidden", "false");
+    bloquearFondoPorModal(true);
+
+    requestAnimationFrame(() => {
+        const destino = focoInicial || modal.querySelector(SELECTORES_FOCO) || modal.querySelector(".modal-box-glass");
+        destino?.focus({ preventScroll: true });
+    });
+}
+
+function cerrarModal(modal, restaurarFoco = true) {
+    if (!modal || modal.classList.contains("oculto")) return;
+
+    modal.classList.add("oculto");
+    modal.setAttribute("aria-hidden", "true");
+
+    if (modalActivo === modal) modalActivo = null;
+    bloquearFondoPorModal(Boolean(document.querySelector(".modal-backdrop-sistema:not(.oculto):not(.age-gate-blocker)")));
+
+    if (restaurarFoco && elementoFocoAnterior?.isConnected) {
+        elementoFocoAnterior.focus({ preventScroll: true });
+    }
+    elementoFocoAnterior = null;
+}
+
+function controlarFocoModal(event) {
+    if (event.key !== "Tab" || !modalActivo) return;
+
+    const elementos = Array.from(modalActivo.querySelectorAll(SELECTORES_FOCO)).filter((elemento) => {
+        return elemento instanceof HTMLElement && elemento.offsetParent !== null;
+    });
+
+    if (elementos.length === 0) {
+        event.preventDefault();
+        modalActivo.querySelector(".modal-box-glass")?.focus();
+        return;
+    }
+
+    const primero = elementos[0];
+    const ultimo = elementos[elementos.length - 1];
+
+    if (event.shiftKey && document.activeElement === primero) {
+        event.preventDefault();
+        ultimo.focus();
+    } else if (!event.shiftKey && document.activeElement === ultimo) {
+        event.preventDefault();
+        primero.focus();
+    }
+}
+
+function crearTarjetaCanal(canal) {
+    const tarjeta = document.createElement("article");
+    tarjeta.className = "tarjeta-canal";
+
+    const contenedorFoto = document.createElement("div");
+    contenedorFoto.className = "contenedor-foto imagen-protegida";
+
+    const imagen = document.createElement("img");
+    imagen.src = URL_IMAGEN_DRIVE(canal.imagen);
+    imagen.alt = `Fotografía de portada de ${canal.nombre}`;
+    imagen.loading = canal.id <= 4 ? "eager" : "lazy";
+    imagen.decoding = "async";
+    imagen.width = 500;
+    imagen.height = 700;
+    imagen.draggable = false;
+    imagen.referrerPolicy = "no-referrer";
+    imagen.addEventListener("error", () => {
+        if (imagen.src !== IMAGEN_RESPALDO_FALLBACK) {
+            imagen.src = IMAGEN_RESPALDO_FALLBACK;
+            imagen.alt = `Imagen no disponible para ${canal.nombre}`;
+        }
+    }, { once: true });
+
+    const capaProteccion = document.createElement("div");
+    capaProteccion.className = "capa-proteccion-imagen";
+    capaProteccion.setAttribute("aria-hidden", "true");
+
+    contenedorFoto.append(imagen, capaProteccion);
+
+    const cuerpo = document.createElement("div");
+    cuerpo.className = "info-cuerpo-tarjeta";
+
+    const titulo = document.createElement("h2");
+    titulo.className = "titulo-canal";
+    titulo.textContent = canal.nombre;
+
+    const boton = document.createElement("button");
+    boton.type = "button";
+    boton.className = "btn-telegram-canal";
+    boton.dataset.canalId = String(canal.id);
+    boton.setAttribute("aria-label", `Unirse al canal de Telegram de ${canal.nombre}`);
+
+    const icono = document.createElement("i");
+    icono.setAttribute("data-lucide", "send");
+    icono.setAttribute("aria-hidden", "true");
+
+    const textoBoton = document.createElement("span");
+    textoBoton.textContent = "Unirse al canal de Telegram";
+
+    boton.append(icono, textoBoton);
+    cuerpo.append(titulo, boton);
+    tarjeta.append(contenedorFoto, cuerpo);
+
+    return tarjeta;
+}
+
+function renderizarCanales(listaCanales) {
+    const grid = obtenerElemento("grid-canales");
+    const contador = obtenerElemento("contador-canales");
+    const estadoVacio = obtenerElemento("estado-vacio");
+
+    if (!grid) return;
+
+    grid.replaceChildren();
+
+    if (listaCanales.length === 0) {
+        const titulo = obtenerElemento("estado-vacio-titulo");
+        const subtexto = obtenerElemento("estado-vacio-subtexto");
+        const boton = obtenerElemento("btn-limpiar-busqueda-vacio");
+
+        if (busquedaFiltroTexto) {
+            if (titulo) titulo.textContent = "No encontramos canales que coincidan con tu búsqueda.";
+            if (subtexto) subtexto.textContent = "Prueba escribiendo otro nombre o seleccionando otra categoría.";
+            if (boton) boton.textContent = "Limpiar búsqueda";
+        } else {
+            if (titulo) titulo.textContent = "Todavía no hay canales disponibles en esta categoría.";
+            if (subtexto) subtexto.textContent = "Selecciona Todas para volver a mostrar los perfiles activos.";
+            if (boton) boton.textContent = "Ver todos los canales";
+        }
+
+        estadoVacio?.classList.remove("oculto");
+        if (contador) contador.textContent = "0 canales disponibles.";
+        actualizarIconos();
+        return;
+    }
+
+    estadoVacio?.classList.add("oculto");
+
+    const fragmento = document.createDocumentFragment();
+    listaCanales.forEach((canal) => fragmento.appendChild(crearTarjetaCanal(canal)));
+    grid.appendChild(fragmento);
+
+    if (contador) {
+        contador.textContent = `${listaCanales.length} ${listaCanales.length === 1 ? "canal disponible" : "canales disponibles"} en el directorio de Honduras.`;
+    }
+
+    actualizarIconos();
 }
 
 function filtrarYProcesarCanales() {
     try {
-        let canalesFiltrados = CANALES_DATOS.filter(canal => {
+        const canalesFiltrados = CANALES_DATOS.filter((canal) => {
             const coincideBuscador = normalizarTexto(canal.nombre).includes(busquedaFiltroTexto);
-            
-            let coincideCategoria = false;
-            if (categoriaActiva === "todas") {
-                coincideCategoria = true;
-            } else if (categoriaActiva === "mas-buscadas") {
-                coincideCategoria = canal.popular === true;
-            } else if (categoriaActiva === "nuevas") {
-                coincideCategoria = canal.new === true;
-            }
+            const coincideCategoria = categoriaActiva === "todas"
+                || (categoriaActiva === "mas-buscadas" && canal.popular)
+                || (categoriaActiva === "nuevas" && canal.new);
 
             return coincideBuscador && coincideCategoria;
         });
 
-        renderizarGridCanalesReales(canalesFiltrados);
-    } catch (err) {
+        renderizarCanales(canalesFiltrados);
+    } catch (error) {
+        console.error("No se pudo procesar el listado de canales.", error);
         desplegarPantallaErrorSistema();
     }
 }
 
-function renderizarGridCanalesReales(listaCanales) {
-    const grid = document.getElementById("grid-canales");
-    const contador = document.getElementById("contador-canales");
-    const estadoVacio = document.getElementById("estado-vacio");
+function limpiarFiltrosYMostrarTodos() {
+    const input = obtenerElemento("buscador-input");
+    const botonLimpiar = obtenerElemento("btn-clear-input");
+    const botonesCategorias = document.querySelectorAll("#contenedor-botones-categorias .btn-categoria");
 
-    if (!grid) return;
-    grid.innerHTML = "";
+    if (input) input.value = "";
+    botonLimpiar?.classList.add("oculto");
+    busquedaFiltroTexto = "";
+    categoriaActiva = "todas";
 
-    if (listaCanales.length === 0) {
-        if (estadoVacio) {
-            const tit = document.getElementById("estado-vacio-titulo");
-            const sub = document.getElementById("estado-vacio-subtexto");
-            const btn = document.getElementById("btn-limpiar-busqueda-vacio");
-
-            if (busquedaFiltroTexto.length > 0) {
-                tit.textContent = "No encontramos canales que coincidan con tu búsqueda.";
-                sub.textContent = "Prueba escribiendo el nombre de otra chica o seleccionando otra categoría.";
-                btn.textContent = "Limpiar búsqueda";
-            } else {
-                tit.textContent = "Todavía no hay canales disponibles en esta categoría.";
-                sub.textContent = "Prueba regresando a una pestaña anterior para ver los perfiles activos.";
-                btn.textContent = "Ver todos los canales";
-            }
-            estadoVacio.classList.remove("oculto");
-        }
-        if (contador) contador.textContent = "0 canales localizados.";
-        return;
-    } else {
-        if (estadoVacio) estadoVacio.classList.add("oculto");
-    }
-
-    if (contador) {
-        contador.textContent = `${listaCanales.length} ${listaCanales.length === 1 ? 'canal disponible' : 'canales disponibles'} en el directorio de Honduras.`;
-    }
-
-    listaCanales.forEach(canal => {
-        // ENLACE CORREGIDO PARA MOSTRAR DIRECTAMENTE LA IMAGEN DE GOOGLE DRIVE (SIN FALLOS DE SINTAXIS)
-        const urlFotoDirecta = `https://drive.google.com/uc?export=view&id=${canal.imagen}`;
-        
-        let htmlBadges = "";
-        if (canal.popular) htmlBadges += `<div class="badge-categoria badge-popular">MÁS BUSCADA 🔥</div>`;
-        if (canal.new) htmlBadges += `<div class="badge-categoria badge-nuevo">NUEVA ⭐</div>`;
-
-        const card = document.createElement("div");
-        card.className = "tarjeta-canal";
-        card.innerHTML = `
-            <div class="contenedor-foto imagen-protegida">
-                <img src="${urlFotoDirecta}" alt="Fotografía de portada de ${canal.nombre}" loading="lazy" width="300" height="380" draggable="false" onerror="manejadorImagenRota(this)">
-                <div class="capa-proteccion-imagen" aria-hidden="true"></div>
-                <div class="wrapper-badges-tarjeta">${htmlBadges}</div>
-            </div>
-            <div class="info-cuerpo-tarjeta">
-                <h2 class="titulo-canal">
-                    ${canal.nombre}
-                    <svg class="icono-verificado-titulo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00a2f2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.3 7.6-5.2 6a1 1 0 0 1-1.5.1l-2.4-2.4a1 1 0 1 1 1.4-1.4l1.6 1.6 4.5-5.3a1 1 0 0 1 1.6 1.4z"/></svg>
-                </h2>
-                <div class="desc-canal">
-                    <p class="texto-verificado">Verificado</p>
-                    <p class="texto-aviso">Únete a su canal privado de Telegram para ver sus publicaciones y novedades.</p>
-                </div>
-                <button type="button" class="btn-telegram-canal" data-canal-id="${canal.id}">
-                    <i data-lucide="send"></i> Unirse al canal de Telegram
-                </button>
-            </div>
-        `;
-        grid.appendChild(card);
+    botonesCategorias.forEach((boton) => {
+        const activo = boton.dataset.categoria === "todas";
+        boton.classList.toggle("activo", activo);
+        boton.setAttribute("aria-pressed", String(activo));
     });
 
-    try {
-        if (window.lucide) {
-            window.lucide.createIcons();
-        }
-    } catch(e) {}
-}
-
-function manejadorImagenRota(elementoImg) {
-    elementoImg.onerror = null;
-    elementoImg.src = IMAGEN_RESPALDO_FALLBACK;
-}
-
-function activarProteccionVisualImagenes() {
-    const gridCanales = document.getElementById("grid-canales");
-    if (!gridCanales) return;
-
-    gridCanales.addEventListener("contextmenu", event => {
-        if (event.target.closest(".imagen-protegida")) event.preventDefault();
-    });
-
-    gridCanales.addEventListener("dragstart", event => {
-        if (event.target.closest(".imagen-protegida")) event.preventDefault();
-    });
-
-    gridCanales.addEventListener("selectstart", event => {
-        if (event.target.closest(".imagen-protegida")) event.preventDefault();
-    });
+    filtrarYProcesarCanales();
 }
 
 function abrirModalConfirmacionTelegram(idCanal) {
-    const canal = CANALES_DATOS.find(c => c.id === idCanal);
+    const canal = CANALES_DATOS.find((elemento) => elemento.id === idCanal);
     if (!canal) return;
 
     canalSeleccionadoTelegram = canal;
 
-    const titulo = document.getElementById("dinamico-modal-canal-name");
-    const mensaje = document.getElementById("dinamico-modal-canal-msg");
-    const modal = document.getElementById("modal-confirmacion-telegram");
+    const nombre = obtenerElemento("dinamico-modal-canal-name");
+    const mensaje = obtenerElemento("dinamico-modal-canal-msg");
+    const modal = obtenerElemento("modal-confirmacion-telegram");
 
-    if (titulo) titulo.textContent = `Canal privado de ${canal.nombre}`;
-    if (mensaje) mensaje.textContent = `Estás a punto de abrir el canal privado de Telegram de ${canal.nombre}. Presiona continuar para abrirlo en la aplicación o en Telegram Web.`;
-    
-    modal?.classList.remove("oculto");
+    if (nombre) nombre.textContent = `Canal privado de ${canal.nombre}`;
+    if (mensaje) {
+        mensaje.textContent = `Estás a punto de abrir el canal privado de Telegram de ${canal.nombre}. Presiona continuar para abrirlo en la aplicación o en Telegram Web.`;
+    }
+
+    abrirModal(modal, obtenerElemento("btn-modal-confirmar-telegram"));
 }
 
 function cerrarModalTelegram() {
-    document.getElementById("modal-confirmacion-telegram")?.classList.add("oculto");
+    cerrarModal(obtenerElemento("modal-confirmacion-telegram"));
     canalSeleccionadoTelegram = null;
 }
 
 function continuarAlCanalTelegram() {
-    if (!canalSeleccionadoTelegram || !canalSeleccionadoTelegram.enlace) return;
+    const canal = canalSeleccionadoTelegram;
+    if (!canal?.enlace) return;
 
-    window.open(canalSeleccionadoTelegram.enlace, "_blank", "noopener,noreferrer");
+    const enlace = document.createElement("a");
+    enlace.href = canal.enlace;
+    enlace.target = "_blank";
+    enlace.rel = "noopener noreferrer";
+    enlace.style.display = "none";
+    document.body.appendChild(enlace);
+    enlace.click();
+    enlace.remove();
 
     cerrarModalTelegram();
 }
 
 function abrirModalTextosLegalesFooter(claveLegal) {
-    const modal = document.getElementById("modal-textos-legales-footer");
-    const titulo = document.getElementById("modal-titulo-legal");
-    const cuerpo = document.getElementById("modal-cuerpo-legal-dinamico");
+    const modal = obtenerElemento("modal-textos-legales-footer");
+    const titulo = obtenerElemento("modal-titulo-legal");
+    const cuerpo = obtenerElemento("modal-cuerpo-legal-dinamico");
 
-    if (!modal || !cuerpo || !titulo) return;
+    if (!modal || !titulo || !cuerpo) return;
 
-    const mapaTitulos = {
+    const titulos = {
         terminos: "Términos y condiciones",
         privacidad: "Política de privacidad",
         mayoridad: "Aviso para mayores de 18 años",
@@ -439,36 +416,171 @@ function abrirModalTextosLegalesFooter(claveLegal) {
         contacto: "Contacto"
     };
 
-    titulo.textContent = mapaTitulos[claveLegal] || "Información Legal";
+    titulo.textContent = titulos[claveLegal] || "Información legal";
     cuerpo.innerHTML = TEXTOS_LEGALES_FOOTER[claveLegal] || "<p>Contenido legal no disponible.</p>";
-    
-    modal.classList.remove("oculto");
+    cuerpo.scrollTop = 0;
+
+    abrirModal(modal, obtenerElemento("btn-modal-cerrar-legal"));
+}
+
+function cerrarModalLegal() {
+    cerrarModal(obtenerElemento("modal-textos-legales-footer"));
+}
+
+function activarProteccionVisualImagenes() {
+    const grid = obtenerElemento("grid-canales");
+    if (!grid) return;
+
+    ["contextmenu", "dragstart", "selectstart"].forEach((tipoEvento) => {
+        grid.addEventListener(tipoEvento, (event) => {
+            if (event.target instanceof Element && event.target.closest(".imagen-protegida")) {
+                event.preventDefault();
+            }
+        });
+    });
 }
 
 function desplegarPantallaErrorSistema() {
-    const grid = document.getElementById("grid-canales");
-    const estadoVacio = document.getElementById("estado-vacio");
-    const contador = document.getElementById("contador-canales");
+    const grid = obtenerElemento("grid-canales");
+    const estadoVacio = obtenerElemento("estado-vacio");
+    const contador = obtenerElemento("contador-canales");
+    const titulo = obtenerElemento("estado-vacio-titulo");
+    const subtexto = obtenerElemento("estado-vacio-subtexto");
+    const boton = obtenerElemento("btn-limpiar-busqueda-vacio");
 
-    if (!grid) return;
-    grid.innerHTML = "";
+    grid?.replaceChildren();
+    if (contador) contador.textContent = "No se pudo mostrar el listado.";
+    if (titulo) titulo.textContent = "Ocurrió un error al mostrar los canales.";
+    if (subtexto) subtexto.textContent = "Presiona el botón para volver a cargar el listado local.";
+    if (boton) boton.textContent = "Intentar nuevamente";
+    estadoVacio?.classList.remove("oculto");
+}
 
-    if (contador) contador.textContent = "Error en el listado.";
+function vincularListenersInterfazCompleta() {
+    const inputBuscar = obtenerElemento("buscador-input");
+    const botonLimpiarInline = obtenerElemento("btn-clear-input");
+    const botonesCategorias = document.querySelectorAll("#contenedor-botones-categorias .btn-categoria");
 
-    if (estadoVacio) {
-        const tit = document.getElementById("estado-vacio-titulo");
-        const sub = document.getElementById("estado-vacio-subtexto");
-        const btn = document.getElementById("btn-limpiar-busqueda-vacio");
+    inputBuscar?.addEventListener("input", (event) => {
+        clearTimeout(debounceTimerId);
 
-        tit.textContent = "No pudimos cargar el listado en este momento.";
-        sub.textContent = "Por favor, verifica tu conexión a internet e inténtalo de nuevo.";
-        btn.textContent = "Intentar nuevamente";
-        
-        btn.onclick = function() {
-            btn.onclick = null; 
-            inyectarCargaSkeletons();
-        };
+        const valor = event.currentTarget instanceof HTMLInputElement ? event.currentTarget.value : "";
+        busquedaFiltroTexto = normalizarTexto(valor);
+        botonLimpiarInline?.classList.toggle("oculto", valor.trim().length === 0);
 
-        estadoVacio.classList.remove("oculto");
+        debounceTimerId = window.setTimeout(filtrarYProcesarCanales, 200);
+    });
+
+    inputBuscar?.addEventListener("search", () => {
+        busquedaFiltroTexto = normalizarTexto(inputBuscar.value);
+        botonLimpiarInline?.classList.toggle("oculto", inputBuscar.value.trim().length === 0);
+        filtrarYProcesarCanales();
+    });
+
+    botonLimpiarInline?.addEventListener("click", () => {
+        if (inputBuscar) inputBuscar.value = "";
+        busquedaFiltroTexto = "";
+        botonLimpiarInline.classList.add("oculto");
+        filtrarYProcesarCanales();
+        inputBuscar?.focus();
+    });
+
+    botonesCategorias.forEach((boton) => {
+        boton.addEventListener("click", () => {
+            categoriaActiva = boton.dataset.categoria || "todas";
+
+            botonesCategorias.forEach((otroBoton) => {
+                const activo = otroBoton === boton;
+                otroBoton.classList.toggle("activo", activo);
+                otroBoton.setAttribute("aria-pressed", String(activo));
+            });
+
+            filtrarYProcesarCanales();
+        });
+    });
+
+    obtenerElemento("btn-limpiar-busqueda-vacio")?.addEventListener("click", limpiarFiltrosYMostrarTodos);
+
+    obtenerElemento("grid-canales")?.addEventListener("click", (event) => {
+        const objetivo = event.target instanceof Element ? event.target.closest(".btn-telegram-canal") : null;
+        if (!(objetivo instanceof HTMLButtonElement)) return;
+
+        const idCanal = Number.parseInt(objetivo.dataset.canalId || "", 10);
+        if (Number.isInteger(idCanal)) abrirModalConfirmacionTelegram(idCanal);
+    });
+
+    obtenerElemento("btn-modal-cancelar-telegram")?.addEventListener("click", cerrarModalTelegram);
+    obtenerElemento("btn-modal-confirmar-telegram")?.addEventListener("click", continuarAlCanalTelegram);
+    obtenerElemento("btn-modal-cerrar-legal")?.addEventListener("click", cerrarModalLegal);
+
+    obtenerElemento("modal-confirmacion-telegram")?.addEventListener("click", (event) => {
+        if (event.target === event.currentTarget) cerrarModalTelegram();
+    });
+
+    obtenerElemento("modal-textos-legales-footer")?.addEventListener("click", (event) => {
+        if (event.target === event.currentTarget) cerrarModalLegal();
+    });
+
+    document.querySelectorAll(".btn-footer-link").forEach((boton) => {
+        boton.addEventListener("click", () => abrirModalTextosLegalesFooter(boton.dataset.modalLegal));
+    });
+
+    document.addEventListener("keydown", (event) => {
+        controlarFocoModal(event);
+
+        if (event.key !== "Escape") return;
+
+        if (!obtenerElemento("modal-confirmacion-telegram")?.classList.contains("oculto")) {
+            cerrarModalTelegram();
+        } else if (!obtenerElemento("modal-textos-legales-footer")?.classList.contains("oculto")) {
+            cerrarModalLegal();
+        }
+    });
+}
+
+function validarBaseDeDatos() {
+    const ids = CANALES_DATOS.map((canal) => canal.id);
+    const nombres = CANALES_DATOS.map((canal) => normalizarTexto(canal.nombre));
+    const enlaces = CANALES_DATOS.map((canal) => canal.enlace);
+    const imagenes = CANALES_DATOS.map((canal) => canal.imagen);
+    const perfilesExcluidos = ["oruga hn", "soy la oruga", "stefy"];
+
+    const errores = [];
+
+    if (CANALES_DATOS.length !== 44) errores.push(`Se esperaban 44 canales y se encontraron ${CANALES_DATOS.length}.`);
+    if (new Set(ids).size !== ids.length) errores.push("Existen IDs duplicados.");
+    if (new Set(nombres).size !== nombres.length) errores.push("Existen nombres duplicados.");
+    if (new Set(enlaces).size !== enlaces.length) errores.push("Existen enlaces de Telegram duplicados.");
+    if (new Set(imagenes).size !== imagenes.length) errores.push("Existen IDs de imagen duplicados.");
+    if (!ids.every((id, indice) => id === indice + 1)) errores.push("Los IDs no están ordenados del 1 al 44.");
+    if (nombres.some((nombre) => perfilesExcluidos.includes(nombre))) errores.push("Se encontró un perfil excluido dentro de la base de datos.");
+    if (!nombres.includes("soy loruga")) errores.push("Falta el perfil válido Soy Loruga.");
+
+    if (errores.length > 0) {
+        console.error("Errores detectados en CANALES_DATOS:", errores);
+        return false;
     }
+
+    return true;
+}
+
+function inicializarAplicacion() {
+    actualizarAñoFooter();
+    inicializarControlEdad();
+    vincularListenersInterfazCompleta();
+    activarProteccionVisualImagenes();
+
+    if (validarBaseDeDatos()) {
+        filtrarYProcesarCanales();
+    } else {
+        desplegarPantallaErrorSistema();
+    }
+
+    actualizarIconos();
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", inicializarAplicacion, { once: true });
+} else {
+    inicializarAplicacion();
 }
