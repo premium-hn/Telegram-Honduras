@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plataforma informativa premium para descubrir y unirse a los mejores canales de Telegram Honduras organizados por categorías.">
+    <meta name="description" content="Plataforma premium para descubrir y unirse a los mejores canales de Telegram Honduras organizados por categorías.">
     <title>Telegram Hub Honduras | Directorio Premium</title>
-    <link rel="stylesheet" href="./style.css?v=20260618-2">
+    <link rel="stylesheet" href="./style.css?v=20260618-4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@0.400.0/dist/umd/lucide.min.js" defer></script>
-    <script src="./script.js?v=20260618-2" defer></script>
+    <script src="./script.js?v=20260618-4" defer></script>
 </head>
 <body>
 
@@ -140,8 +140,93 @@
                 </div>
                 <div class="clausula-item">
                     <h5>Enlaces Externos e Independencia de Marca</h5>
-                    <p>Los botones de acceso conducen directamente a canales alojados en Telegram. Este directorio funciona de manera independiente y no mantiene afectación, patrocinio ni relación comercial oficial con Telegram o con los administradores de la plataforma.</p>
+                    <p>Los botones de acceso conducen directamente a canales alojados en Telegram. Este directorio funciona de manera independiente y no mantiene afiliación, patrocinio ni relación comercial oficial con Telegram o con los administradores de la plataforma.</p>
                 </div>
                 <div class="clausula-item">
                     <h5>Políticas de Contenido y Transparencia</h5>
-                    <p>No se permite incluir material relacionado con menores ni publicaciones utilizadas sin autorización
+                    <p>No se permite incluir material relacionado con menores ni publicaciones utilizadas sin autorización. Los propietarios o representantes autorizados pueden reportar un perfil y solicitar la eliminación de una fotografía, nombre o enlace mediante los medios disponibles en el pie de página.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-premium">
+        <div class="contenedor-footer-content">
+            <div class="footer-info-marca">
+                <span class="footer-logo">TELEGRAM<span class="resalto-logo">HN</span></span>
+                <p class="footer-disclaimer-brand">Directorio estático e independiente. Telegram es una marca registrada independiente.</p>
+            </div>
+            <div class="footer-enlaces-legales">
+                <button type="button" class="btn-footer-link" data-modal-legal="terminos">Términos y condiciones</button>
+                <button type="button" class="btn-footer-link" data-modal-legal="privacidad">Política de privacidad</button>
+                <button type="button" class="btn-footer-link" data-modal-legal="mayoridad">Aviso para mayores de 18 años</button>
+                <button type="button" class="btn-footer-link" data-modal-legal="reportar">Reportar contenido</button>
+                <button type="button" class="btn-footer-link" data-modal-legal="eliminacion">Solicitar eliminación</button>
+                <button type="button" class="btn-footer-link" data-modal-legal="contacto">Contacto</button>
+            </div>
+        </div>
+        <div class="footer-derechos-barra">
+            <p>© <span id="auto-year">2026</span> TELEGRAM HUB HN. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="modal-backdrop-sistema oculto" id="modal-confirmacion-telegram" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-canal">
+        <div class="modal-box-glass">
+            <div class="modal-header-icon blue-theme">
+                <i data-lucide="send"></i>
+            </div>
+            <h4 class="modal-titulo-sistema" id="modal-titulo-canal">Continuar a Telegram</h4>
+            <div class="modal-cuerpo-sistema">
+                <p class="modal-nombre-elemento-destacado" id="dinamico-modal-canal-name">Canal privado de [NOMBRE]</p>
+                <p class="modal-texto-aviso-legal" id="dinamico-modal-canal-msg">Estás a punto de abrir el canal privado de Telegram de [NOMBRE]. Presiona continuar para abrirlo en la aplicación o en Telegram Web.</p>
+            </div>
+            <div class="modal-footer-botones">
+                <button type="button" class="btn-modal-accion secundario" id="btn-modal-cancelar-telegram">Cancelar</button>
+                <button type="button" class="btn-modal-accion primario" id="btn-modal-confirmar-telegram">Continuar a Telegram</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop-sistema oculto" id="modal-textos-legales-footer" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-legal">
+        <div class="modal-box-glass ancho-legal">
+            <h4 class="modal-titulo-sistema" id="modal-titulo-legal">Información Legal</h4>
+            <div class="modal-cuerpo-sistema legal-scroll" id="modal-cuerpo-legal-dinamico">
+                </div>
+            <div class="modal-footer-botones">
+                <button type="button" class="btn-modal-accion primario" id="btn-modal-cerrar-legal">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop-sistema age-gate-blocker" id="modal-interceptor-edad" role="dialog" aria-modal="true" aria-hidden="false">
+        <div class="modal-box-glass age-box">
+            <div class="modal-header-icon shadow-gold">
+                <span class="badge-18-icon">18+</span>
+            </div>
+
+            <h4 class="modal-titulo-sistema font-bold-header">
+                Acceso restringido
+            </h4>
+
+            <div class="modal-cuerpo-sistema text-center-box">
+                <p class="modal-texto-aviso-legal-age">
+                    Este sitio contiene referencias a canales dirigidos
+                    exclusivamente a personas adultas. Confirma que tienes
+                    18 años o más para continuar.
+                </p>
+            </div>
+
+            <div class="modal-footer-botones vertical-layout-mobile">
+                <button type="button" class="btn-modal-accion secundario" id="btn-age-gate-salir">
+                    Salir
+                </button>
+
+                <button type="button" class="btn-modal-accion primario" id="btn-age-gate-confirmar">
+                    Soy mayor de 18 años
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
