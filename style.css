@@ -252,8 +252,9 @@ body.modal-abierto {
 }
 
 .panel-control-glass {
-    margin-bottom: 30px;
-    padding: 25px;
+    max-width: 980px;
+    margin: 0 auto 26px;
+    padding: 18px 20px;
     border: 1px solid var(--borde-glass);
     border-radius: 20px;
     background: var(--fondo-tarjeta-glass);
@@ -265,7 +266,7 @@ body.modal-abierto {
 .bloque-buscador {
     position: relative;
     width: 100%;
-    max-width: 550px;
+    max-width: 540px;
     margin: 0 auto;
 }
 
@@ -335,7 +336,7 @@ body.modal-abierto {
 
 .titulo-categorias-seccion {
     display: block;
-    margin: 24px 0 12px;
+    margin: 16px 0 10px;
     color: var(--texto-secundario);
     font-size: 0.78rem;
     font-weight: 700;
@@ -460,12 +461,23 @@ body.modal-abierto {
 }
 
 .titulo-canal {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
     margin: 0;
     color: #fff;
     font-size: 1.15rem;
     font-weight: 700;
     line-height: 1.25;
-    text-align: center;
+    text-align: left;
+}
+
+.icono-verificado-titulo {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    color: var(--color-telegram-hover);
 }
 
 .btn-telegram-canal {
@@ -585,9 +597,6 @@ body.modal-abierto {
     background: rgba(255, 255, 255, 0.02);
 }
 
-.comentario-destacado-final {
-    grid-column: 1 / -1;
-}
 
 .comentario-cabecera {
     display: flex;
@@ -612,6 +621,7 @@ body.modal-abierto {
 .avatar-verde { background: #16a34a; }
 .avatar-morado { background: #9333ea; }
 .avatar-rojo { background: #dc2626; }
+.avatar-cian { background: #0891b2; }
 
 .nombre-comentario {
     margin: 0;
@@ -1016,7 +1026,7 @@ body.modal-abierto {
     }
 
     .panel-control-glass {
-        padding: 18px 14px;
+        padding: 16px 12px;
         border-radius: 16px;
     }
 
@@ -1051,9 +1061,6 @@ body.modal-abierto {
         grid-template-columns: 1fr;
     }
 
-    .comentario-destacado-final {
-        grid-column: auto;
-    }
 
     .seccion-comentarios {
         margin-top: 38px;
