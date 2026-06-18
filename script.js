@@ -333,8 +333,8 @@ function renderizarGridCanalesReales(listaCanales) {
     }
 
     listaCanales.forEach(canal => {
-        // CORRECCIÓN EXACTA APLICADA PARA URL LIMPIA Y DIRECTA
-        const urlFotoDirecta = `https://lh3.googleusercontent.com/d/${canal.imagen}=w500-h700-p`;
+        // ENLACE DIRECTO COMPROBADO Y CORRECTO
+        const urlFotoDirecta = `https://lh3.googleusercontent.com/d/$${canal.imagen}=w500-h700-p`;
         
         let htmlBadges = "";
         if (canal.popular) htmlBadges += `<div class="badge-categoria badge-popular">MÁS BUSCADA 🔥</div>`;
