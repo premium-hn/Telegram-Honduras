@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="description" content="Plataforma premium para descubrir y unirse a los mejores canales de Telegram Honduras organizados por categorías de forma segura.">
     <title>Telegram Hub Honduras | Directorio Premium</title>
-    <link rel="stylesheet" href="./style.css?v=20260618-6">
+    <link rel="stylesheet" href="./style.css?v=20260618-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Dependencia fija de la biblioteca de iconos Lucide para producción -->
     <script src="https://unpkg.com/lucide@0.400.0/dist/umd/lucide.min.js" defer></script>
-    <script src="./script.js?v=20260618-6" defer></script>
+    <script src="./script.js?v=20260618-8" defer></script>
 </head>
 <body>
 
-    <!-- Fondo de Efecto Aurora Estético -->
     <div class="decoracion-fondo-aurora" aria-hidden="true"></div>
 
-    <!-- Encabezado de Navegación Principal -->
     <header class="header-premium">
         <div class="contenedor-nav">
             <div class="logo-area">
@@ -31,7 +28,6 @@
         </div>
     </header>
 
-    <!-- Sección Hero Principal Optimizada (Sin Beneficios ni Botón de Desplazamiento) -->
     <section class="banner-hero">
         <div class="contenido-hero">
             <span class="tagline-premium">Comunidades VIP & Canales Exclusivos</span>
@@ -40,11 +36,9 @@
         </div>
     </section>
 
-    <!-- Contenedor del Directorio Informativo -->
     <main class="contenedor-principal" id="directorio-seccion">
         <section class="panel-control-glass">
             
-            <!-- Buscador Avanzado Centrado -->
             <div class="bloque-buscador">
                 <i data-lucide="search" class="icono-buscar"></i>
                 <input type="text" id="buscador-input" placeholder="Buscar canal por nombre…" autocomplete="off">
@@ -53,7 +47,6 @@
                 </button>
             </div>
 
-            <!-- Panel de Control de Categorías -->
             <div class="contenedor-categorias">
                 <span class="titulo-categorias-seccion">Categorías Disponibles:</span>
                 <div class="grid-botones-categorias" id="contenedor-botones-categorias">
@@ -64,17 +57,14 @@
             </div>
         </section>
 
-        <!-- Contador Sincronizado de Resultados -->
         <div class="contador-resultados" id="contador-canales" aria-live="polite">
             Sincronizando el registro de canales privados...
         </div>
 
-        <!-- Rejilla de Visualización Dinámica de Tarjetas -->
         <section class="grid-canales" id="grid-canales">
-            <!-- Inyección automatizada de Skeletons y Tarjetas -->
+            <!-- Inyección de Tarjetas -->
         </section>
 
-        <!-- Contenedor Informativo Sin Resultados -->
         <div class="estado-vacio oculto" id="estado-vacio">
             <i data-lucide="alert-circle" class="icono-vacio"></i>
             <h3 id="estado-vacio-titulo">No encontramos canales que coincidan con tu búsqueda.</h3>
@@ -82,42 +72,46 @@
             <button type="button" class="btn-limpiar-accion" id="btn-limpiar-busqueda-vacio">Ver todos los canales</button>
         </div>
 
-        <!-- Sección de Experiencias de Usuarios Estáticas -->
+        <!-- REESTRUCTURACIÓN DE COMENTARIOS PARA EVITAR SUPERPOSICIONES -->
         <section class="seccion-comentarios">
             <h3 class="titulo-comentarios">Experiencias de nuestros usuarios</h3>
             <div class="lista-comentarios-estaticos">
+                
                 <div class="comentario-card-fijo">
-                    <div class="avatar-comentario" style="background-color: #0284c7;">M</div>
-                    <div class="cuerpo-comentario">
+                    <div class="comentario-cabecera">
+                        <div class="avatar-comentario" style="background-color: #0284c7;">M</div>
                         <h4 class="nombre-comentario">Marlon J.</h4>
-                        <p class="texto-comentario">La organización del directorio es excelente. Las categorías permiten filtrar de inmediato y los enlaces directos a Telegram funcionan correctamente y permiten encontrar cada canal de forma rápida.</p>
                     </div>
+                    <p class="texto-comentario">La organización del directorio es excelente. Las categorías permiten filtrar de inmediato y los enlaces directos a Telegram funcionan correctamente y permiten encontrar cada canal de forma rápida.</p>
                 </div>
+
                 <div class="comentario-card-fijo">
-                    <div class="avatar-comentario" style="background-color: #eab308;">D</div>
-                    <div class="cuerpo-comentario">
+                    <div class="comentario-cabecera">
+                        <div class="avatar-comentario" style="background-color: #eab308;">D</div>
                         <h4 class="nombre-comentario">Daniel T.</h4>
-                        <p class="texto-comentario">Me parece una interfaz sumamente limpia y profesional. Es de gran utilidad que cargue perfectamente en teléfonos móviles, permitiendo el ingreso rápido a las aplicaciones.</p>
                     </div>
+                    <p class="texto-comentario">Me parece una interfaz sumamente limpia y profesional. Es de gran utilidad que cargue perfectamente en teléfonos móviles, permitiendo el ingreso rápido a las aplicaciones.</p>
                 </div>
+
                 <div class="comentario-card-fijo">
-                    <div class="avatar-comentario" style="background-color: #22c55e;">F</div>
-                    <div class="cuerpo-comentario">
+                    <div class="comentario-cabecera">
+                        <div class="avatar-comentario" style="background-color: #22c55e;">F</div>
                         <h4 class="nombre-comentario">Fernando S.</h4>
-                        <p class="texto-comentario">El funcionamiento de la página web es ejemplar. Los accesos directos abren la app de Telegram de inmediato sin redirecciones extrañas ni ventanas de publicidad molesta.</p>
                     </div>
+                    <p class="texto-comentario">El funcionamiento de la página web es ejemplar. Los accesos directos abren la app de Telegram de inmediato sin redirecciones extrañas ni ventanas de publicidad molesta.</p>
                 </div>
+
                 <div class="comentario-card-fijo">
-                    <div class="avatar-comentario" style="background-color: #db2777;">R</div>
-                    <div class="cuerpo-comentario">
+                    <div class="comentario-cabecera">
+                        <div class="avatar-comentario" style="background-color: #db2777;">R</div>
                         <h4 class="nombre-comentario">Ramiro V.</h4>
-                        <p class="texto-comentario">Felicidades por mantener un catálogo informativo verificado y libre de enlaces engañosos. Es el portal más completo y seguro que he utilizado en dispositivos móviles.</p>
                     </div>
+                    <p class="texto-comentario">Felicidades por mantener un catálogo informativo verificado y libre de enlaces engañosos. Es el portal más completo y seguro que he utilizado en dispositivos móviles.</p>
                 </div>
+
             </div>
         </section>
 
-        <!-- Sección Normativa de Seguridad y Clausulas Legales -->
         <section class="seccion-seguridad-legal">
             <div class="bloque-legal-cabecera">
                 <i data-lucide="shield-alert" class="icono-legal-header"></i>
@@ -144,7 +138,6 @@
         </section>
     </main>
 
-    <!-- Footer Corporativo Sincronizado -->
     <footer class="footer-premium">
         <div class="contenedor-footer-content">
             <div class="footer-info-marca">
@@ -187,9 +180,7 @@
     <div class="modal-backdrop-sistema oculto" id="modal-textos-legales-footer" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-legal">
         <div class="modal-box-glass ancho-legal">
             <h4 class="modal-titulo-sistema" id="modal-titulo-legal">Información Legal</h4>
-            <div class="modal-cuerpo-sistema legal-scroll" id="modal-cuerpo-legal-dinamico">
-                <!-- Inyección estructurada de textos legales -->
-            </div>
+            <div class="modal-cuerpo-sistema legal-scroll" id="modal-cuerpo-legal-dinamico"></div>
             <div class="modal-footer-botones">
                 <button type="button" class="btn-modal-accion primario" id="btn-modal-cerrar-legal">Entendido</button>
             </div>
@@ -202,27 +193,15 @@
             <div class="modal-header-icon shadow-gold">
                 <span class="badge-18-icon">18+</span>
             </div>
-
-            <h4 class="modal-titulo-sistema font-bold-header">
-                Acceso restringido
-            </h4>
-
+            <h4 class="modal-titulo-sistema font-bold-header">Acceso restringido</h4>
             <div class="modal-cuerpo-sistema text-center-box">
                 <p class="modal-texto-aviso-legal-age">
-                    Este sitio contiene referencias a canales dirigidos
-                    exclusivamente a personas adultas. Confirma que tienes
-                    18 años o más para continuar.
+                    Este sitio contiene referencias a canales dirigidos exclusivamente a personas adultas. Confirma que tienes 18 años o más para continuar.
                 </p>
             </div>
-
             <div class="modal-footer-botones vertical-layout-mobile">
-                <button type="button" class="btn-modal-accion secundario" id="btn-age-gate-salir">
-                    Salir
-                </button>
-
-                <button type="button" class="btn-modal-accion primario" id="btn-age-gate-confirmar">
-                    Soy mayor de 18 años
-                </button>
+                <button type="button" class="btn-modal-accion secundario" id="btn-age-gate-salir">Salir</button>
+                <button type="button" class="btn-modal-accion primario" id="btn-age-gate-confirmar">Soy mayor de 18 años</button>
             </div>
         </div>
     </div>
