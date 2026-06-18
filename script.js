@@ -366,7 +366,7 @@ function renderizarGridCanalesReales(listaCanales) {
         if (contador) contador.textContent = "0 canales localizados.";
         return;
     } else {
-        estadoVacio?.classList.add("oculto");
+        if (estadoVacio) estadoVacio.classList.add("oculto");
     }
 
     if (contador) {
@@ -375,7 +375,7 @@ function renderizarGridCanalesReales(listaCanales) {
 
     // Dibujo de Tarjetas en el DOM
     listaCanales.forEach(canal => {
-        // Enlace generado limpiamente y libre de símbolos extraños
+        // Enlace generado limpiamente y de forma correcta para Google Drive
         const urlFotoDirecta = `https://lh3.googleusercontent.com/d/${canal.imagen}=w500-h700-p`;
         
         let htmlBadges = "";
