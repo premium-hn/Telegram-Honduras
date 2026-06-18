@@ -333,8 +333,8 @@ function renderizarGridCanalesReales(listaCanales) {
     }
 
     listaCanales.forEach(canal => {
-        // ENLACE DIRECTO COMPROBADO Y CORRECTO
-        const urlFotoDirecta = `https://lh3.googleusercontent.com/d/$${canal.imagen}=w500-h700-p`;
+        // ENLACE CORREGIDO PARA MOSTRAR DIRECTAMENTE LA IMAGEN DE GOOGLE DRIVE (SIN FALLOS DE SINTAXIS)
+        const urlFotoDirecta = `https://drive.google.com/uc?export=view&id=${canal.imagen}`;
         
         let htmlBadges = "";
         if (canal.popular) htmlBadges += `<div class="badge-categoria badge-popular">MÁS BUSCADA 🔥</div>`;
