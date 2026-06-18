@@ -317,4 +317,171 @@ body {
 .seccion-comentarios { max-width: 850px; margin: 60px auto 20px auto; padding: 35px 24px; border-top: 1px solid var(--borde-glass); }
 .titulo-comentarios { font-size: 1.45rem; font-weight: 800; text-align: center; margin-bottom: 28px; color: #fff; }
 .lista-comentarios-fijos { display: flex; flex-direction: column; gap: 16px; }
-.comentario-card-fijo { display: flex; gap: 16px; background: rgba(15, 16, 24, 0.4); padding: 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,
+.comentario-card-fijo { display: flex; gap: 16px; background: rgba(15, 16, 24, 0.4); padding: 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.03); }
+.avatar-comentario { width: 42px; height: 42px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; flex-shrink: 0; }
+.cuerpo-comentario { display: flex; flex-direction: column; gap: 5px; }
+.nombre-comentario { font-size: 0.98rem; color: #fff; font-weight: 700; }
+.texto-comentario { font-size: 0.9rem; color: var(--texto-secundario); line-height: 1.5; }
+
+/* --- Bloque Estricto de Cláusulas de Seguridad --- */
+.seccion-seguridad-legal {
+    max-width: 1200px; margin: 40px auto 10px auto; padding: 35px 24px;
+    background: rgba(16, 18, 27, 0.3); border-radius: 20px; border: 1px solid var(--borde-glass);
+}
+.bloque-legal-cabecera { display: flex; align-items: center; gap: 10px; margin-bottom: 25px; justify-content: center; }
+.icono-legal-header { color: var(--color-oro-premium); width: 22px; height: 22px; }
+.bloque-legal-cabecera h3 { font-size: 1.3rem; font-weight: 800; color: #fff; letter-spacing: 0.5px; }
+
+/* Estructura para Computadoras */
+.grid-clausulas-legales { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 18px; align-items: stretch; }
+.clausula-item { height: 100%; min-height: 250px; padding: 20px; display: grid; grid-template-rows: minmax(52px, auto) 1fr; align-content: start; background: rgba(255, 255, 255, 0.025); border: 1px solid var(--borde-glass); border-radius: 14px; }
+.clausula-item h5 { min-height: 52px; margin: 0 0 14px; padding-left: 10px; display: flex; align-items: flex-start; font-size: 0.95rem; font-weight: 700; line-height: 1.25; color: var(--texto-principal); border-left: 3px solid var(--color-telegram); }
+.clausula-item p { margin: 0; font-size: 0.88rem; line-height: 1.65; color: var(--texto-secundario); text-align: left; overflow-wrap: break-word; }
+
+/* --- Sistema de Modales Glassmorphism Seguros (REGLAS MANDATORIAS CORREGIDAS) --- */
+.oculto { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+
+html.edad-bloqueada,
+body.edad-bloqueada {
+    overflow: hidden !important;
+}
+
+#modal-interceptor-edad.oculto {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+#modal-interceptor-edad {
+    pointer-events: auto;
+}
+
+#modal-interceptor-edad .modal-box-glass,
+#modal-interceptor-edad button {
+    pointer-events: auto;
+}
+
+#btn-age-gate-confirmar,
+#btn-age-gate-salir {
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+}
+
+/* --- Diseño Premium de los Botones del Control de Edad --- */
+#btn-age-gate-confirmar {
+    background: var(--color-telegram);
+    color: #ffffff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-family: var(--fuente-sistema);
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+#btn-age-gate-confirmar:hover {
+    background: var(--color-telegram-hover);
+}
+
+#btn-age-gate-salir {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--texto-principal);
+    border: 1px solid var(--borde-glass);
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-family: var(--fuente-sistema);
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+/* --- Entorno del Modal General --- */
+.modal-backdrop-sistema {
+    position: fixed; inset: 0; width: 100%; height: 100%;
+    background: rgba(4, 5, 9, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.modal-box-glass {
+    background: rgba(22, 25, 37, 0.92); border: 1px solid var(--borde-glass); border-radius: 20px;
+    width: 100%; max-width: 430px; padding: 30px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); text-align: center;
+    animation: openModalFX 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.modal-box-glass.ancho-legal { max-width: 620px; text-align: left; }
+
+@keyframes openModalFX { from { opacity: 0; transform: scale(0.96) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+.modal-header-icon { width: 50px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; }
+.modal-header-icon.blue-theme { background: rgba(0, 136, 204, 0.1); border: 1px solid rgba(0, 136, 204, 0.3); color: var(--color-telegram-hover); }
+
+.modal-titulo-sistema { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 12px; }
+.modal-cuerpo-sistema { margin-bottom: 24px; }
+.modal-nombre-elemento-destacado { font-size: 1.15rem; font-weight: 700; color: var(--color-telegram-hover); margin-bottom: 8px; }
+.modal-texto-aviso-legal { font-size: 0.9rem; color: var(--texto-secundario); line-height: 1.54; }
+
+.modal-footer-botones { display: flex; gap: 12px; justify-content: center; }
+
+.btn-modal-accion { padding: 12px 24px; border-radius: 10px; font-size: 0.92rem; font-weight: 700; cursor: pointer; font-family: var(--fuente-sistema); border: none; transition: var(--transicion-suave); }
+.btn-modal-accion.secundario { background: rgba(255,255,255,0.03); border: 1px solid var(--borde-glass); color: var(--texto-principal); }
+.btn-modal-accion.secundario:hover { background: rgba(255,255,255,0.06); }
+.btn-modal-accion.primario { background: var(--color-telegram); color: #fff; }
+.btn-modal-accion.primario:hover { background: var(--color-telegram-hover); box-shadow: 0 4px 12px rgba(0,136,204,0.25); }
+
+.legal-scroll { max-height: 340px; overflow-y: auto; padding-right: 8px; }
+.legal-scroll::-webkit-scrollbar { width: 4px; }
+.legal-scroll h5 { font-size: 0.98rem; font-weight: 700; margin: 15px 0 6px 0; color: #fff; }
+.legal-scroll p { font-size: 0.88rem; color: var(--texto-secundario); line-height: 1.55; margin-bottom: 10px; text-align: justify; }
+
+/* --- Control Blocker Mayoría de Edad (Age Gate Box Backdrop) --- */
+.modal-backdrop-sistema.age-gate-blocker { background: #040509; z-index: 9999; }
+.modal-box-glass.age-box { max-width: 450px; padding: 35px; border-color: rgba(255, 183, 3, 0.25); }
+.modal-header-icon.shadow-gold { background: rgba(255, 183, 3, 0.08); border: 1px solid rgba(255, 183, 3, 0.3); color: var(--color-oro-premium); }
+.badge-18-icon { font-size: 1.3rem; font-weight: 800; }
+.modal-texto-aviso-legal-age { font-size: 0.98rem; color: var(--texto-principal); line-height: 1.6; }
+
+/* --- Footer --- */
+.footer-premium { border-top: 1px solid var(--borde-glass); background: #05060a; padding: 40px 24px 20px 24px; margin-top: 45px; }
+.contenedor-footer-content { max-width: 1200px; margin: 0 auto 30px auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 35px; flex-wrap: wrap; }
+.footer-info-marca { max-width: 380px; display: flex; flex-direction: column; gap: 8px; }
+.footer-logo { font-size: 1.3rem; font-weight: 800; color: #fff; letter-spacing: 0.5px; }
+.footer-disclaimer-brand { font-size: 0.82rem; color: var(--texto-secundario); line-height: 1.45; }
+.footer-enlaces-legales { display: grid; grid-template-columns: repeat(2, minmax(150px, 1fr)); gap: 12px 24px; }
+.btn-footer-link { background: transparent; border: none; color: var(--texto-secundario); font-size: 0.85rem; cursor: pointer; text-align: left; font-family: var(--fuente-sistema); transition: var(--transicion-suave); width: fit-content; }
+.btn-footer-link:hover { color: var(--color-telegram-hover); text-decoration: underline; }
+.footer-derechos-barra { max-width: 1200px; margin: 0 auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.03); text-align: center; font-size: 0.8rem; color: var(--texto-secundario); }
+
+/* --- RESPONSIVIDAD Y BREAKPOINTS EXIGIDOS --- */
+@media (max-width: 1024px) {
+    .contenedor-footer-content { flex-direction: column; align-items: stretch; gap: 30px; }
+}
+
+@media (max-width: 950px) {
+    .grid-clausulas-legales { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .clausula-item { min-height: 220px; }
+}
+
+@media (max-width: 768px) {
+    .titulo-principal { font-size: 2rem; }
+    .grid-canales { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .contenedor-foto { height: 320px; }
+}
+
+@media (max-width: 600px) {
+    .seccion-seguridad-legal { padding: 24px 16px; }
+    .grid-clausulas-legales { grid-template-columns: 1fr; gap: 14px; }
+    .clausula-item { min-height: auto; padding: 18px; grid-template-rows: auto auto; }
+    .clausula-item h5 { min-height: auto; margin-bottom: 10px; }
+}
+
+@media (max-width: 480px) {
+    .titulo-principal { font-size: 1.65rem; }
+    .grid-canales { grid-template-columns: 1fr; } 
+    .contenedor-foto { height: 350px; }
+    .grid-botones-categorias { justify-content: flex-start; padding-bottom: 6px; }
+    .footer-enlaces-legales { grid-template-columns: 1fr; gap: 10px; } 
+    .modal-footer-botones.vertical-layout-mobile { flex-direction: column-reverse; gap: 10px; }
+    .modal-footer-botones.vertical-layout-mobile .btn-modal-accion { width: 100%; }
+}
+
+@media (max-width: 360px) {
+    .titulo-principal { font-size: 1.4rem; }
+}
