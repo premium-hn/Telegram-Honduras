@@ -1,4 +1,3 @@
-/* --- Paleta de Colores e Identidad Visual Oscuro/Azul de Telegram --- */
 :root {
     --fondo-profundo: #0a0b10;
     --fondo-tarjeta-glass: rgba(20, 22, 32, 0.65);
@@ -257,116 +256,42 @@ body {
 }
 
 .tarjeta-canal {
-    background: var(--fondo-tarjeta-glass);
-    border: 1px solid var(--borde-glass);
-    border-radius: 16px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: var(--transicion-suave);
-    will-change: transform, box-shadow;
+    background: var(--fondo-tarjeta-glass); border: 1px solid var(--borde-glass); border-radius: 16px;
+    overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: var(--transicion-suave); will-change: transform, box-shadow;
 }
 .tarjeta-canal:hover {
-    transform: translateY(-5px);
-    border-color: var(--borde-glass-hover);
+    transform: translateY(-5px); border-color: var(--borde-glass-hover);
     box-shadow: 0 12px 30px rgba(0, 136, 204, 0.15);
 }
 
 /* --- Blindaje Visual Anti-Copia para Fotos --- */
-.imagen-protegida {
-    position: relative;
-    overflow: hidden;
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
-    width: 100%;
-    height: 380px;
-    background: #141620;
-}
-
-.imagen-protegida img {
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
-    -moz-user-select: none;
-    object-fit: cover;
-    object-position: top;
-    transition: transform 0.5s ease;
-}
+.imagen-protegida { position: relative; overflow: hidden; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; width: 100%; height: 380px; background: #141620; }
+.imagen-protegida img { width: 100%; height: 100%; pointer-events: none; user-select: none; -webkit-user-select: none; -webkit-user-drag: none; -moz-user-select: none; object-fit: cover; object-position: top; transition: transform 0.5s ease; }
 .tarjeta-canal:hover .imagen-protegida img { transform: scale(1.03); }
 
-.capa-proteccion-imagen {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    background: transparent;
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
-}
+.capa-proteccion-imagen { position: absolute; inset: 0; z-index: 2; background: transparent; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 
-.wrapper-badges-tarjeta {
-    position: absolute; top: 12px; left: 12px;
-    display: flex; flex-direction: column; gap: 6px; z-index: 3; pointer-events: none;
-}
-
-.badge-categoria {
-    background: rgba(10, 11, 16, 0.85); backdrop-filter: blur(6px);
-    border: 1px solid var(--borde-glass); padding: 4px 10px; border-radius: 6px;
-    font-size: 0.68rem; font-weight: 700; color: #fff; width: fit-content;
-}
+.wrapper-badges-tarjeta { position: absolute; top: 12px; left: 12px; display: flex; flex-direction: column; gap: 6px; z-index: 3; pointer-events: none; }
+.badge-categoria { background: rgba(10, 11, 16, 0.85); backdrop-filter: blur(6px); border: 1px solid var(--borde-glass); padding: 4px 10px; border-radius: 6px; font-size: 0.68rem; font-weight: 700; color: #fff; width: fit-content; }
 .badge-categoria.badge-popular { border-color: rgba(255, 183, 3, 0.4); color: var(--color-oro-premium); }
 .badge-categoria.badge-nuevo { border-color: rgba(0, 162, 242, 0.4); color: #00a2f2; }
 
 /* --- Información Interna de Tarjeta --- */
-.info-cuerpo-tarjeta {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.titulo-canal {
-    font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;
-    color: #fff; display: flex; align-items: center; gap: 6px; line-height: 1.3;
-}
+.info-cuerpo-tarjeta { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+.titulo-canal { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; color: #fff; display: flex; align-items: center; gap: 6px; line-height: 1.3; }
 .icono-verificado-titulo { width: 18px; height: 18px; flex-shrink: 0; }
-
-.desc-canal {
-    display: flex; flex-direction: column; gap: 4px;
-    margin-bottom: 20px; flex-grow: 1;
-}
+.desc-canal { display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; flex-grow: 1; }
 .texto-verificado { font-size: 0.88rem; color: #fff; font-weight: 600; }
 .texto-aviso { font-size: 0.85rem; color: var(--texto-secundario); line-height: 1.45; }
 
 /* --- Botón Unificado de Telegram --- */
 .btn-telegram-canal {
-    width: 100%;
-    background: var(--color-telegram);
-    color: #ffffff;
-    border: none;
-    padding: 14px 20px;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    font-family: var(--fuente-sistema);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: var(--transicion-suave);
-    margin-top: auto;
-    text-decoration: none;
+    width: 100%; background: var(--color-telegram); color: #ffffff; border: none; padding: 14px 20px; border-radius: 12px;
+    font-weight: 700; font-size: 0.95rem; font-family: var(--fuente-sistema); cursor: pointer; display: flex; align-items: center; justify-content: center;
+    gap: 8px; transition: var(--transicion-suave); margin-top: auto; text-decoration: none;
 }
 .btn-telegram-canal:hover {
-    background: var(--color-telegram-hover);
-    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.35);
-    transform: translateY(-2px);
+    background: var(--color-telegram-hover); box-shadow: 0 4px 15px rgba(0, 136, 204, 0.35); transform: translateY(-2px);
 }
 
 /* --- Tarjetas Skeletons de Carga Animadas --- */
@@ -392,80 +317,4 @@ body {
 .seccion-comentarios { max-width: 850px; margin: 60px auto 20px auto; padding: 35px 24px; border-top: 1px solid var(--borde-glass); }
 .titulo-comentarios { font-size: 1.45rem; font-weight: 800; text-align: center; margin-bottom: 28px; color: #fff; }
 .lista-comentarios-fijos { display: flex; flex-direction: column; gap: 16px; }
-.comentario-card-fijo { display: flex; gap: 16px; background: rgba(15, 16, 24, 0.4); padding: 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.03); }
-.avatar-comentario { width: 42px; height: 42px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; flex-shrink: 0; }
-.cuerpo-comentario { display: flex; flex-direction: column; gap: 5px; }
-.nombre-comentario { font-size: 0.98rem; color: #fff; font-weight: 700; }
-.texto-comentario { font-size: 0.9rem; color: var(--texto-secundario); line-height: 1.5; }
-
-/* --- Bloque Estricto de Cláusulas de Seguridad --- */
-.seccion-seguridad-legal {
-    max-width: 1200px;
-    margin: 40px auto 10px auto;
-    padding: 35px 24px;
-    background: rgba(16, 18, 27, 0.3);
-    border-radius: 20px;
-    border: 1px solid var(--borde-glass);
-}
-
-.bloque-legal-cabecera { display: flex; align-items: center; gap: 10px; margin-bottom: 25px; justify-content: center; }
-.icono-legal-header { color: var(--color-oro-premium); width: 22px; height: 22px; }
-.bloque-legal-cabecera h3 { font-size: 1.3rem; font-weight: 800; color: #fff; letter-spacing: 0.5px; }
-
-/* Estructura para Computadoras (Alineación y alturas idénticas) */
-.grid-clausulas-legales {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-auto-rows: 1fr;
-    gap: 18px;
-    align-items: stretch;
-}
-
-.clausula-item {
-    height: 100%;
-    min-height: 250px;
-    padding: 20px;
-    display: grid;
-    grid-template-rows: minmax(52px, auto) 1fr;
-    align-content: start;
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid var(--borde-glass);
-    border-radius: 14px;
-}
-
-.clausula-item h5 {
-    min-height: 52px;
-    margin: 0 0 14px;
-    padding-left: 10px;
-    display: flex;
-    align-items: flex-start;
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1.25;
-    color: var(--texto-principal);
-    border-left: 3px solid var(--color-telegram);
-}
-
-.clausula-item p {
-    margin: 0;
-    font-size: 0.88rem;
-    line-height: 1.65;
-    color: var(--texto-secundario);
-    text-align: left;
-    overflow-wrap: break-word;
-}
-
-/* --- Sistema de Modales Glassmorphism --- */
-.modal-backdrop-sistema {
-    position: fixed; inset: 0; width: 100%; height: 100%;
-    background: rgba(4, 5, 9, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px;
-}
-.modal-box-glass {
-    background: rgba(22, 25, 37, 0.92); border: 1px solid var(--borde-glass); border-radius: 20px;
-    width: 100%; max-width: 430px; padding: 30px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); text-align: center;
-    animation: openModalFX 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-.modal-box-glass.ancho-legal { max-width: 620px; text-align: left; }
-
-@keyframes openModalFX
+.comentario-card-fijo { display: flex; gap: 16px; background: rgba(15, 16, 24, 0.4); padding: 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,
