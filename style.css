@@ -134,91 +134,54 @@ body.edad-bloqueada {
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* --- Barra de Desplazamiento --- */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--fondo-profundo); }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-telegram); }
+
 /* --- Capa de Fondo Aurora --- */
 .decoracion-fondo-aurora {
-    position: absolute;
-    width: 550px;
-    height: 550px;
+    position: absolute; width: 550px; height: 550px;
     background: radial-gradient(circle, rgba(0, 136, 204, 0.1) 0%, rgba(161, 85, 255, 0.03) 65%, rgba(0,0,0,0) 100%);
-    top: -180px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
-    pointer-events: none;
-    filter: blur(75px);
+    top: -180px; left: 50%; transform: translateX(-50%); z-index: -1; pointer-events: none; filter: blur(75px);
 }
 
 /* --- Encabezado de Navegación --- */
 .header-premium {
-    position: sticky;
-    top: 0;
-    z-index: 990;
-    background: rgba(10, 11, 16, 0.8);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--borde-glass);
-    box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    position: sticky; top: 0; z-index: 990;
+    background: rgba(10, 11, 16, 0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--borde-glass); box-shadow: 0 4px 30px rgba(0,0,0,0.5);
 }
-
-.contenedor-nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+.contenedor-nav { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
 .logo-area { display: flex; align-items: center; gap: 8px; }
 .icono-logo { color: var(--color-telegram); width: 24px; height: 24px; }
 .texto-logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; }
 .resalto-logo { color: var(--color-telegram); }
 
 .badge-elite {
-    background: rgba(0, 136, 204, 0.08);
-    border: 1px solid rgba(0, 136, 204, 0.25);
-    color: var(--color-telegram-hover);
-    padding: 6px 14px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    background: rgba(0, 136, 204, 0.08); border: 1px solid rgba(0, 136, 204, 0.25);
+    color: var(--color-telegram-hover); padding: 6px 14px; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px;
 }
 
 /* --- Presentación Hero Principal --- */
 .banner-hero { max-width: 1200px; margin: 50px auto 30px auto; padding: 0 24px; text-align: center; }
-
 .tagline-premium {
     background: rgba(255, 255, 255, 0.03); padding: 6px 16px; border-radius: 30px;
     font-size: 0.8rem; font-weight: 600; color: var(--texto-secundario);
     border: 1px solid var(--borde-glass); display: inline-block; margin-bottom: 16px;
 }
-
 .titulo-principal { font-size: 2.6rem; font-weight: 800; line-height: 1.25; margin-bottom: 16px; letter-spacing: -0.5px; }
 .gradiente-texto { background: var(--gradiente-premium); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .subtitulo-principal { font-size: 1.08rem; color: var(--texto-secundario); max-width: 620px; margin: 0 auto; line-height: 1.6; }
 
-.contenedor-beneficios-hero { display: flex; justify-content: center; gap: 24px; margin-bottom: 35px; flex-wrap: wrap; }
-.beneficio-tarjeta { display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--borde-glass); padding: 8px 16px; border-radius: 12px; }
-.beneficio-tarjeta i { width: 16px; height: 16px; color: var(--color-telegram-hover); }
-.beneficio-tarjeta span { font-size: 0.85rem; font-weight: 500; }
-
-.btn-explorar-canales {
-    background: linear-gradient(135deg, rgba(0, 136, 204, 0.15) 0%, rgba(161, 85, 255, 0.08) 100%);
-    border: 1px solid var(--borde-glass-hover); color: #fff; padding: 12px 26px; border-radius: 50px;
-    font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: var(--transicion-suave);
-    display: inline-flex; align-items: center; gap: 8px;
-}
-.btn-explorar-canales:hover { background: var(--color-telegram); box-shadow: 0 4px 20px rgba(0, 136, 204, 0.3); transform: translateY(2px); }
-
 /* --- Contenedor e Inputs del Catálogo --- */
 .contenedor-principal { max-width: 1200px; margin: 0 auto; padding: 0 24px 60px 24px; }
-
 .panel-control-glass {
     background: var(--fondo-tarjeta-glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--borde-glass); border-radius: 20px; padding: 25px; margin-bottom: 30px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
-
 .bloque-buscador { position: relative; width: 100%; max-width: 550px; margin: 0 auto; }
 .icono-buscar { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--texto-secundario); width: 18px; height: 18px; pointer-events: none; }
 
@@ -254,11 +217,9 @@ body.edad-bloqueada {
 
 /* --- Blindaje Visual Anti-Copia para Fotos --- */
 .imagen-protegida { position: relative; overflow: hidden; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; width: 100%; height: 380px; background: #141620; touch-action: pan-y; }
-.imagen-protegida img { width: 100%; height: 100%; pointer-events: none; user-select: none; -webkit-user-select: none; -webkit-user-drag: none; -moz-user-select: none; object-fit: cover; object-position: top; transition: transform 0.5s ease; }
+.imagen-protegida img { display: block; width: 100%; height: 100%; pointer-events: none; user-select: none; -webkit-user-select: none; -webkit-user-drag: none; -moz-user-select: none; object-fit: cover; object-position: top; transition: transform 0.5s ease; }
 .tarjeta-canal:hover .imagen-protegida img { transform: scale(1.03); }
-
 .capa-proteccion-imagen { position: absolute; inset: 0; z-index: 2; background: transparent; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
-
 .wrapper-badges-tarjeta { position: absolute; top: 12px; left: 12px; display: flex; flex-direction: column; gap: 6px; z-index: 3; pointer-events: none; max-width: calc(100% - 24px); }
 .badge-categoria { background: rgba(10, 11, 16, 0.85); backdrop-filter: blur(6px); border: 1px solid var(--borde-glass); padding: 4px 10px; border-radius: 6px; font-size: 0.68rem; font-weight: 700; color: #fff; width: fit-content; max-width: 100%; white-space: nowrap; }
 .badge-categoria.badge-popular { border-color: rgba(255, 183, 3, 0.4); color: var(--color-oro-premium); }
@@ -269,7 +230,10 @@ body.edad-bloqueada {
 .titulo-canal { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; color: #fff; display: flex; align-items: center; gap: 6px; line-height: 1.3; }
 .icono-verificado-titulo { width: 18px; height: 18px; flex-shrink: 0; }
 .desc-canal { display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; flex-grow: 1; }
-.texto-verificado { font-size: 0.88rem; color: #fff; font-weight: 600; }
+
+/* AQUI ESTÁ LA CORRECCIÓN A COLOR ORO QUE SOLICITASTE */
+.texto-verificado { font-size: 0.88rem; color: var(--color-oro-premium); font-weight: 700; letter-spacing: 0.3px; }
+
 .texto-aviso { font-size: 0.85rem; color: var(--texto-secundario); line-height: 1.45; }
 
 /* --- Botón Unificado de Telegram --- */
@@ -288,7 +252,6 @@ body.edad-bloqueada {
 .skeleton-line.title { width: 55%; height: 18px; }
 .skeleton-line.desc { width: 90%; }
 .skeleton-line.btn { width: 100%; height: 44px; margin-top: auto; border-radius: 12px; }
-
 @keyframes runSkeleton { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
 /* --- Estados Sin Coincidencias --- */
@@ -408,7 +371,7 @@ body.edad-bloqueada {
     .contenedor-principal { padding: 0 16px 50px; }
     .panel-control-glass { margin-top: 0; padding: 20px 14px; border-radius: 18px; width: 100%; }
     .bloque-buscador { width: 100%; max-width: 100%; min-width: 0; }
-    #buscador-input { width: 100%; max-width: 100%; min-width: 0; padding-right: 44px; font-size: 16px; placeholder: "Buscar canal por nombre…"; }
+    #buscador-input { width: 100%; max-width: 100%; min-width: 0; padding-right: 44px; font-size: 16px; }
 
     .grid-botones-categorias { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; overflow: visible; }
     .btn-categoria { width: 100%; min-width: 0; padding: 10px 5px; font-size: 0.76rem; white-space: nowrap; border-radius: 50px; }
