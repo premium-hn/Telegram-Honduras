@@ -141,7 +141,7 @@ const TEXTOS_LEGALES_FOOTER = {
     mayoridad: `<h5>Aviso Restrictivo de Edad (18+)</h5><p>Los canales compilados en este espacio informativo incluyen material enfocado y dirigido exclusivamente a personas adultas legalmente capacitadas.</p><p>Queda prohibido el ingreso de menores de edad. Mantenemos políticas estrictas de remoción de enlaces ante cualquier reporte verificado de contenidos no autorizados.</p>`,
     reportar: `<h5>Tramitación de Reportes de Enlaces</h5><p>En caso de localizar un hipervínculo roto, caído o considerar que un canal indexado no cumple las reglas de la comunidad, puede solicitar una auditoría preventiva.</p><p>Próximamente se habilitará un canal oficial institucional para la recepción sistemática de reportes y la posterior verificación de enlaces del directorio.</p>`,
     eliminacion: `<h5>Solicitudes de Exclusión Directa (DMCA)</h5><p>Se respeta plenamente el derecho de autor y de imagen de todos los creadores.</p><p>Cualquier titular o apoderado legal acreditado puede demandar la remoción inmediata de un perfil, enlace o fotografía del directorio. La exclusión se ejecuta de forma expedita tras recibir la validación formal.</p>`,
-    contacto: `<h5>Canal de Soporte de la Plataforma</h5><p>Para consultas administrativas o solicitudes de baja de perfiles, próximamente se habilitará un canal oficial centralizado para la atención de requerimientos informativos.</p>`
+    contacto: `<h5>Canales de Soporte y Comunicación</h5><p>Para notificaciones administrativas o solicitudes de baja de perfiles, próximamente se habilitará un canal oficial centralizado para la atención de requerimientos informativos.</p>`
 };
 
 // ============================================================================
@@ -169,7 +169,7 @@ function actualizarAñoFooter() {
     }
 }
 
-// Función Normalizadora Exigida en el punto 9 (Ignora Acentos y Mayúsculas)
+// Función Normalizadora (Ignora Acentos y Mayúsculas para un filtrado exacto)
 function normalizarTexto(texto) {
     return String(texto)
         .toLowerCase()
@@ -185,7 +185,7 @@ function vincularListenersInterfazCompleta() {
     const inputBuscar = document.getElementById("buscador-input");
     const btnClearInline = document.getElementById("btn-clear-input");
 
-    // Buscador interactivo
+    // Buscador interactivo optimizado
     inputBuscar?.addEventListener("input", (e) => {
         clearTimeout(debounceTimerId);
         busquedaFiltroTexto = normalizarTexto(e.target.value);
@@ -201,7 +201,7 @@ function vincularListenersInterfazCompleta() {
         }, 200);
     });
 
-    // Botón X interactivo del campo de búsqueda
+    // Limpieza de búsqueda en input
     btnClearInline?.addEventListener("click", () => {
         if (inputBuscar) inputBuscar.value = "";
         busquedaFiltroTexto = "";
@@ -210,7 +210,7 @@ function vincularListenersInterfazCompleta() {
         inputBuscar?.focus();
     });
 
-    // Filtrado por botones de categorías estáticas
+    // Filtros de Categorías Estáticas
     const botonesCategorias = document.querySelectorAll("#contenedor-botones-categorias .btn-categoria");
     botonesCategorias.forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -222,7 +222,7 @@ function vincularListenersInterfazCompleta() {
         });
     });
 
-    // Acción del botón corregida en punto 8 ("Ver todos los canales")
+    // Acción del estado vacío ("Ver todos los canales")
     document.getElementById("btn-limpiar-busqueda-vacio")?.addEventListener("click", () => {
         if (inputBuscar) inputBuscar.value = "";
         busquedaFiltroTexto = "";
@@ -259,16 +259,24 @@ function vincularListenersInterfazCompleta() {
         if (e.target === backdropTelegram) cerrarModalTelegram();
     });
 
-    // Vinculación de modales legales del footer
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            cerrarModalTelegram();
+            document.getElementById("modal-textos-legales-footer")?.classList.add("oculto");
+        }
+    });
+
+    // Cierre del modal de textos del footer
+    document.getElementById("btn-modal-cerrar-legal")?.addEventListener("click", () => {
+        document.getElementById("modal-textos-legales-footer")?.classList.add("oculto");
+    });
+
+    // Enlaces del Footer a modales dinámicos
     document.querySelectorAll(".btn-footer-link").forEach(btn => {
         btn.addEventListener("click", (e) => {
             const claveLegal = e.currentTarget.getAttribute("data-modal-legal");
             abrirModalTextosLegalesFooter(claveLegal);
         });
-    });
-
-    document.getElementById("btn-modal-cerrar-legal")?.addEventListener("click", () => {
-        document.getElementById("modal-textos-legales-footer")?.classList.add("oculto");
     });
 }
 
@@ -337,6 +345,7 @@ function renderizarGridCanalesReales(listaCanales) {
     if (!grid) return;
     grid.innerHTML = "";
 
+    // Control de Estado Vacío Profesional
     if (listaCanales.length === 0) {
         if (estadoVacio) {
             const tit = document.getElementById("estado-vacio-titulo");
@@ -357,16 +366,17 @@ function renderizarGridCanalesReales(listaCanales) {
         if (contador) contador.textContent = "0 canales localizados.";
         return;
     } else {
-        if (estadoVacio) estadoVacio.classList.add("oculto");
+        estadoVacio?.classList.add("oculto");
     }
 
     if (contador) {
         contador.textContent = `${listaCanales.length} ${listaCanales.length === 1 ? 'canal disponible' : 'canales disponibles'} en el directorio de Honduras.`;
     }
 
+    // Dibujo de Tarjetas en el DOM
     listaCanales.forEach(canal => {
-        // Enlace estructurado de forma exacta conforme al punto 4
-        const urlFotoDirecta = `https://lh3.googleusercontent.com/d/$${canal.imagen}=w500-h700-p`;
+        // Enlace generado limpiamente y libre de símbolos extraños
+        const urlFotoDirecta = `https://lh3.googleusercontent.com/d/${canal.imagen}=w500-h700-p`;
         
         let htmlBadges = "";
         if (canal.popular) htmlBadges += `<div class="badge-categoria badge-popular">MÁS BUSCADA 🔥</div>`;
@@ -410,7 +420,7 @@ function manejadorImagenRota(elementoImg) {
 }
 
 // ============================================================================
-// 9. ARRASTRE Y CLIC DERECHO BLOQUEADO EN IMÁGENES PROTEGIDAS
+// 9. ARRASTRE Y CLIC DERECHO BLOQUEADO EXCLUSIVAMENTE EN IMÁGENES PROTEGIDAS
 // ============================================================================
 function activarProteccionVisualImagenes() {
     const gridCanales = document.getElementById("grid-canales");
@@ -430,7 +440,7 @@ function activarProteccionVisualImagenes() {
 }
 
 // ============================================================================
-// 10. MODAL INTERNO CONFIRMACIÓN DE REDIRECCIÓN TELEGRAM (PUNTOS 5 Y 6)
+// 10. MODAL INTERNO DE CONFIRMACIÓN (REDIRECCIÓN Y SEGURIDAD TELEGRAM)
 // ============================================================================
 function abrirModalConfirmacionTelegram(idCanal) {
     const canal = CANALES_DATOS.find(c => c.id === idCanal);
@@ -455,10 +465,15 @@ function cerrarModalTelegram() {
 
 function continuarAlCanalTelegram() {
     if (!canalSeleccionadoTelegram || !canalSeleccionadoTelegram.enlace) return;
+
     window.open(canalSeleccionadoTelegram.enlace, "_blank", "noopener,noreferrer");
+
     cerrarModalTelegram();
 }
 
+// ============================================================================
+// 11. GESTIÓN DE MODALES DE INFORMACIÓN LEGAL DEL FOOTER
+// ============================================================================
 function abrirModalTextosLegalesFooter(claveLegal) {
     const modal = document.getElementById("modal-textos-legales-footer");
     const titulo = document.getElementById("modal-titulo-legal");
@@ -481,6 +496,9 @@ function abrirModalTextosLegalesFooter(claveLegal) {
     modal.classList.remove("oculto");
 }
 
+// ============================================================================
+// 12. GESTIÓN DEL ESTADO DE ERROR GLOBAL (CATCHER)
+// ============================================================================
 function desplegarPantallaErrorSistema() {
     const grid = document.getElementById("grid-canales");
     const estadoVacio = document.getElementById("estado-vacio");
