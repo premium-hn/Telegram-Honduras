@@ -252,9 +252,8 @@ body.modal-abierto {
 }
 
 .panel-control-glass {
-    max-width: 980px;
-    margin: 0 auto 26px;
-    padding: 18px 20px;
+    margin-bottom: 30px;
+    padding: 25px;
     border: 1px solid var(--borde-glass);
     border-radius: 20px;
     background: var(--fondo-tarjeta-glass);
@@ -266,7 +265,7 @@ body.modal-abierto {
 .bloque-buscador {
     position: relative;
     width: 100%;
-    max-width: 540px;
+    max-width: 550px;
     margin: 0 auto;
 }
 
@@ -336,7 +335,7 @@ body.modal-abierto {
 
 .titulo-categorias-seccion {
     display: block;
-    margin: 16px 0 10px;
+    margin: 24px 0 12px;
     color: var(--texto-secundario);
     font-size: 0.78rem;
     font-weight: 700;
@@ -453,6 +452,46 @@ body.modal-abierto {
     -webkit-touch-callout: none;
 }
 
+.wrapper-badges-tarjeta {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 3;
+    display: flex;
+    max-width: calc(100% - 24px);
+    pointer-events: none;
+}
+
+.badge-categoria {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    padding: 5px 10px;
+    border: 1px solid var(--borde-glass);
+    border-radius: 7px;
+    background: rgba(10, 11, 16, 0.88);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+.badge-popular {
+    border-color: rgba(255, 183, 3, 0.45);
+    color: var(--color-oro-premium);
+}
+
+.badge-nuevo {
+    border-color: rgba(0, 162, 242, 0.5);
+    color: #57c7ff;
+}
+
 .info-cuerpo-tarjeta {
     display: flex;
     flex-direction: column;
@@ -461,23 +500,12 @@ body.modal-abierto {
 }
 
 .titulo-canal {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
     margin: 0;
     color: #fff;
     font-size: 1.15rem;
     font-weight: 700;
     line-height: 1.25;
-    text-align: left;
-}
-
-.icono-verificado-titulo {
-    width: 16px;
-    height: 16px;
-    flex: 0 0 auto;
-    color: var(--color-telegram-hover);
+    text-align: center;
 }
 
 .btn-telegram-canal {
@@ -597,6 +625,9 @@ body.modal-abierto {
     background: rgba(255, 255, 255, 0.02);
 }
 
+.comentario-destacado-final {
+    grid-column: 1 / -1;
+}
 
 .comentario-cabecera {
     display: flex;
@@ -621,7 +652,6 @@ body.modal-abierto {
 .avatar-verde { background: #16a34a; }
 .avatar-morado { background: #9333ea; }
 .avatar-rojo { background: #dc2626; }
-.avatar-cian { background: #0891b2; }
 
 .nombre-comentario {
     margin: 0;
@@ -1026,7 +1056,7 @@ body.modal-abierto {
     }
 
     .panel-control-glass {
-        padding: 16px 12px;
+        padding: 18px 14px;
         border-radius: 16px;
     }
 
@@ -1061,6 +1091,9 @@ body.modal-abierto {
         grid-template-columns: 1fr;
     }
 
+    .comentario-destacado-final {
+        grid-column: auto;
+    }
 
     .seccion-comentarios {
         margin-top: 38px;
