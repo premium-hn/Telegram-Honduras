@@ -1,11 +1,7 @@
 /**
- * Telegram Hub Honduras - Módulo del Controlador Lógico Unificado
- * Configuración Sincronizada para Despliegues Estáticos en GitHub Pages.
+ * Telegram Hub Honduras - Módulo Lógico Estático
  */
 
-// ============================================================================
-// 1. SISTEMA COMPACTO E INMUTABLE DE CONTROL DE EDAD (AGE GATE IIFE CLOSURE)
-// ============================================================================
 (function () {
     "use strict";
 
@@ -34,19 +30,13 @@
     }
 
     function comprobarEdadConfirmada() {
-        try {
-            return localStorage.getItem(CLAVE_EDAD) === "true";
-        } catch (error) {
-            return false;
-        }
+        try { return localStorage.getItem(CLAVE_EDAD) === "true"; } 
+        catch (e) { return false; }
     }
 
     function guardarEdadConfirmada() {
-        try {
-            localStorage.setItem(CLAVE_EDAD, "true");
-        } catch (error) {
-            console.warn("No se pudo registrar la confirmación de edad en el almacenamiento local.");
-        }
+        try { localStorage.setItem(CLAVE_EDAD, "true"); } 
+        catch (e) {}
     }
 
     function inicializarControlEdad() {
@@ -83,9 +73,6 @@
     }
 })();
 
-// ============================================================================
-// 2. FUENTE OFICIAL DE CANALES (44 PERFILES ORDENADOS POR IDENTIFICADOR)
-// ============================================================================
 const IMAGEN_RESPALDO_FALLBACK = "./img/imagen-no-disponible.webp";
 
 const CANALES_DATOS = [
@@ -144,17 +131,11 @@ const TEXTOS_LEGALES_FOOTER = {
     contacto: `<h5>Canales de Soporte y Comunicación</h5><p>Para notificaciones administrativas o solicitudes de baja de perfiles, próximamente se habilitará un canal oficial centralizado para la atención de requerimientos informativos.</p>`
 };
 
-// ============================================================================
-// 3. VARIABLES GENERALES DEL ENTORNO DE FILTRADO
-// ============================================================================
 let canalSeleccionadoTelegram = null;
 let categoriaActiva = "todas";
 let busquedaFiltroTexto = "";
 let debounceTimerId = null;
 
-// ============================================================================
-// 4. INICIALIZADOR GENERAL DEL SISTEMA
-// ============================================================================
 document.addEventListener("DOMContentLoaded", () => {
     actualizarAñoFooter();
     vincularListenersInterfazCompleta();
@@ -169,7 +150,6 @@ function actualizarAñoFooter() {
     }
 }
 
-// Función Normalizadora (Ignora Acentos y Mayúsculas para un filtrado exacto)
 function normalizarTexto(texto) {
     return String(texto)
         .toLowerCase()
@@ -178,14 +158,10 @@ function normalizarTexto(texto) {
         .trim();
 }
 
-// ============================================================================
-// 5. OBSERVADORES DE INTERFAZ Y DELEGACIÓN DE EVENTOS
-// ============================================================================
 function vincularListenersInterfazCompleta() {
     const inputBuscar = document.getElementById("buscador-input");
     const btnClearInline = document.getElementById("btn-clear-input");
 
-    // Buscador interactivo optimizado
     inputBuscar?.addEventListener("input", (e) => {
         clearTimeout(debounceTimerId);
         busquedaFiltroTexto = normalizarTexto(e.target.value);
@@ -201,7 +177,6 @@ function vincularListenersInterfazCompleta() {
         }, 200);
     });
 
-    // Limpieza de búsqueda en input
     btnClearInline?.addEventListener("click", () => {
         if (inputBuscar) inputBuscar.value = "";
         busquedaFiltroTexto = "";
@@ -210,7 +185,6 @@ function vincularListenersInterfazCompleta() {
         inputBuscar?.focus();
     });
 
-    // Filtros de Categorías Estáticas
     const botonesCategorias = document.querySelectorAll("#contenedor-botones-categorias .btn-categoria");
     botonesCategorias.forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -222,7 +196,6 @@ function vincularListenersInterfazCompleta() {
         });
     });
 
-    // Acción del estado vacío ("Ver todos los canales")
     document.getElementById("btn-limpiar-busqueda-vacio")?.addEventListener("click", () => {
         if (inputBuscar) inputBuscar.value = "";
         busquedaFiltroTexto = "";
@@ -241,7 +214,6 @@ function vincularListenersInterfazCompleta() {
         filtrarYProcesarCanales();
     });
 
-    // DELEGACIÓN DE EVENTOS EN #GRID-CANALES PARA PREVENIR COMPORTAMIENTOS DUPLICADOS
     document.getElementById("grid-canales")?.addEventListener("click", (e) => {
         const targetBoton = e.target.closest(".btn-telegram-canal");
         if (!targetBoton) return;
@@ -250,7 +222,6 @@ function vincularListenersInterfazCompleta() {
         abrirModalConfirmacionTelegram(idCanal);
     });
 
-    // Eventos de control de modales de Telegram
     document.getElementById("btn-modal-cancelar-telegram")?.addEventListener("click", cerrarModalTelegram);
     document.getElementById("btn-modal-confirmar-telegram")?.addEventListener("click", continuarAlCanalTelegram);
     
@@ -266,12 +237,10 @@ function vincularListenersInterfazCompleta() {
         }
     });
 
-    // Cierre del modal de textos del footer
     document.getElementById("btn-modal-cerrar-legal")?.addEventListener("click", () => {
         document.getElementById("modal-textos-legales-footer")?.classList.add("oculto");
     });
 
-    // Enlaces del Footer a modales dinámicos
     document.querySelectorAll(".btn-footer-link").forEach(btn => {
         btn.addEventListener("click", (e) => {
             const claveLegal = e.currentTarget.getAttribute("data-modal-legal");
@@ -280,9 +249,6 @@ function vincularListenersInterfazCompleta() {
     });
 }
 
-// ============================================================================
-// 6. CARGA DE ESQUELETOS (SKELETON ANIMATION LAYERS)
-// ============================================================================
 function inyectarCargaSkeletons() {
     const grid = document.getElementById("grid-canales");
     if (!grid) return;
@@ -308,9 +274,6 @@ function inyectarCargaSkeletons() {
     }, 850);
 }
 
-// ============================================================================
-// 7. PROCESAMIENTO Y MANEJO DE ERRORES GLOBAL (TRY...CATCH)
-// ============================================================================
 function filtrarYProcesarCanales() {
     try {
         let canalesFiltrados = CANALES_DATOS.filter(canal => {
@@ -334,9 +297,6 @@ function filtrarYProcesarCanales() {
     }
 }
 
-// ============================================================================
-// 8. CONSTRUCCIÓN DE TARJETAS REALES DE PORTADAS EN EL GRID
-// ============================================================================
 function renderizarGridCanalesReales(listaCanales) {
     const grid = document.getElementById("grid-canales");
     const contador = document.getElementById("contador-canales");
@@ -345,7 +305,6 @@ function renderizarGridCanalesReales(listaCanales) {
     if (!grid) return;
     grid.innerHTML = "";
 
-    // Control de Estado Vacío Profesional
     if (listaCanales.length === 0) {
         if (estadoVacio) {
             const tit = document.getElementById("estado-vacio-titulo");
@@ -373,9 +332,8 @@ function renderizarGridCanalesReales(listaCanales) {
         contador.textContent = `${listaCanales.length} ${listaCanales.length === 1 ? 'canal disponible' : 'canales disponibles'} en el directorio de Honduras.`;
     }
 
-    // Dibujo de Tarjetas en el DOM
     listaCanales.forEach(canal => {
-        // Enlace generado limpiamente y de forma correcta para Google Drive
+        // CORRECCIÓN EXACTA APLICADA PARA URL LIMPIA Y DIRECTA
         const urlFotoDirecta = `https://lh3.googleusercontent.com/d/${canal.imagen}=w500-h700-p`;
         
         let htmlBadges = "";
@@ -419,9 +377,6 @@ function manejadorImagenRota(elementoImg) {
     elementoImg.src = IMAGEN_RESPALDO_FALLBACK;
 }
 
-// ============================================================================
-// 9. ARRASTRE Y CLIC DERECHO BLOQUEADO EXCLUSIVAMENTE EN IMÁGENES PROTEGIDAS
-// ============================================================================
 function activarProteccionVisualImagenes() {
     const gridCanales = document.getElementById("grid-canales");
     if (!gridCanales) return;
@@ -439,9 +394,6 @@ function activarProteccionVisualImagenes() {
     });
 }
 
-// ============================================================================
-// 10. MODAL INTERNO DE CONFIRMACIÓN (REDIRECCIÓN Y SEGURIDAD TELEGRAM)
-// ============================================================================
 function abrirModalConfirmacionTelegram(idCanal) {
     const canal = CANALES_DATOS.find(c => c.id === idCanal);
     if (!canal) return;
@@ -471,9 +423,6 @@ function continuarAlCanalTelegram() {
     cerrarModalTelegram();
 }
 
-// ============================================================================
-// 11. GESTIÓN DE MODALES DE INFORMACIÓN LEGAL DEL FOOTER
-// ============================================================================
 function abrirModalTextosLegalesFooter(claveLegal) {
     const modal = document.getElementById("modal-textos-legales-footer");
     const titulo = document.getElementById("modal-titulo-legal");
@@ -496,9 +445,6 @@ function abrirModalTextosLegalesFooter(claveLegal) {
     modal.classList.remove("oculto");
 }
 
-// ============================================================================
-// 12. GESTIÓN DEL ESTADO DE ERROR GLOBAL (CATCHER)
-// ============================================================================
 function desplegarPantallaErrorSistema() {
     const grid = document.getElementById("grid-canales");
     const estadoVacio = document.getElementById("estado-vacio");
