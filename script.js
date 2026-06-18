@@ -143,6 +143,51 @@ function normalizarTexto(texto) {
         .trim();
 }
 
+
+function esCanalNuevo(canal) {
+    return NOMBRES_CATEGORIA_NUEVAS_NORMALIZADOS.has(normalizarTexto(canal.nombre));
+}
+
+function esCanalPopular(canal) {
+    return !esCanalNuevo(canal);
+}
+
+function obtenerIndicePrioridad(nombreNormalizado, listaPrioridad) {
+    const indice = listaPrioridad.indexOf(nombreNormalizado);
+    return indice === -1 ? Number.MAX_SAFE_INTEGER : indice;
+}
+
+function ordenarCanales(listaCanales, categoria) {
+    return [...listaCanales].sort((canalA, canalB) => {
+        const nombreA = normalizarTexto(canalA.nombre);
+        const nombreB = normalizarTexto(canalB.nombre);
+
+        if (categoria === "nuevas") {
+            const indiceA = obtenerIndicePrioridad(nombreA, ORDEN_NUEVAS_NORMALIZADO);
+            const indiceB = obtenerIndicePrioridad(nombreB, ORDEN_NUEVAS_NORMALIZADO);
+
+            if (indiceA !== indiceB) return indiceA - indiceB;
+            return canalA.id - canalB.id;
+        }
+
+        const indicePrioridadA = obtenerIndicePrioridad(nombreA, ORDEN_TODAS_PRIORIDAD_NORMALIZADO);
+        const indicePrioridadB = obtenerIndicePrioridad(nombreB, ORDEN_TODAS_PRIORIDAD_NORMALIZADO);
+
+        if (indicePrioridadA !== indicePrioridadB) {
+            return indicePrioridadA - indicePrioridadB;
+        }
+
+        if (categoria === "todas") {
+            const grupoA = esCanalPopular(canalA) ? 0 : 1;
+            const grupoB = esCanalPopular(canalB) ? 0 : 1;
+
+            if (grupoA !== grupoB) return grupoA - grupoB;
+        }
+
+        return canalA.id - canalB.id;
+    });
+}
+
 function actualizarIconos() {
     if (window.lucide && typeof window.lucide.createIcons === "function") {
         window.lucide.createIcons();
